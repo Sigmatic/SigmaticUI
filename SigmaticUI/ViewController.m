@@ -1,5 +1,6 @@
 #import "ViewController.h"
 #import "SUILogs.h"
+#import "SUIViewSubviews.h"
 
 @interface ViewController ()
 
@@ -25,6 +26,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    NSArray *textInputViews = [self.view textInputSubviews];
+    ILog(@"The views are %@", textInputViews);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

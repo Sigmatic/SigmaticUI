@@ -2,6 +2,8 @@
 
 @implementation UIView (Frame)
 
+#pragma mark - Get Set Frame
+
 - (CGFloat)x {
     return self.frame.origin.x;
 }
@@ -42,12 +44,7 @@
     self.frame = myFrame;
 }
 
-
-- (void)removeAllSubviews {
-    for (UIView *view in [self.subviews copy]) {
-        [view removeFromSuperview];
-    }
-}
+#pragma mark - Align
 
 - (instancetype)alignLeft {
     return [self alignLeft:0];
@@ -93,25 +90,7 @@
     return self;
 }
 
-- (instancetype)moveLeft:(CGFloat)points {
-    self.x = self.x - points;
-    return self;
-}
-
-- (instancetype)moveUp:(CGFloat)points {
-    self.y = self.y - points;
-    return self;
-}
-
-- (instancetype)moveRight:(CGFloat)points {
-    self.x = self.x + points;
-    return self;
-}
-
-- (instancetype)moveDown:(CGFloat)points {
-    self.y = self.y + points;
-    return self;
-}
+#pragma mark - Align In Respect to View
 
 - (void)alignLeftOfView:(UIView *)siblingView {
     [self alignLeftOfView:siblingView margin:0];
@@ -149,6 +128,30 @@
     self.y = newY;
 }
 
+#pragma mark - Move
+
+- (instancetype)moveLeft:(CGFloat)points {
+    self.x = self.x - points;
+    return self;
+}
+
+- (instancetype)moveUp:(CGFloat)points {
+    self.y = self.y - points;
+    return self;
+}
+
+- (instancetype)moveRight:(CGFloat)points {
+    self.x = self.x + points;
+    return self;
+}
+
+- (instancetype)moveDown:(CGFloat)points {
+    self.y = self.y + points;
+    return self;
+}
+
+#pragma mark - Center
+
 - (void)centerInSuperview {
     [self centerHorizontally];
     [self centerVertically];
@@ -168,18 +171,13 @@
     self.center = CGPointMake(self.center.x, self.superview.height / 2);
 }
 
+#pragma mark - Expand and Scale
+
 - (void)scale:(CGFloat)scale {
     CGPoint currentCenter = self.center;
     self.width = self.width * scale;
     self.height = self.height * scale;
     self.center = currentCenter;
-}
-
-- (BOOL)hasSameSuperview:(UIView *)siblingView {
-    if (siblingView.superview == nil || self.superview == nil) {
-        return NO;
-    }
-    return self.superview == siblingView.superview;
 }
 
 @end
