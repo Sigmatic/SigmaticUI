@@ -1,14 +1,10 @@
-//
-//  AppDelegate.m
-//  SigmaticUI
-//
-//  Created by Hisham on 17/06/2015.
-//  Copyright (c) 2015 Sigmatic. All rights reserved.
-//
-
 #import "AppDelegate.h"
+#import "SUIControllerEventManager.h"
+#import "ViewController.h"
+#import "SUIControllerObserver.h"
+#import "SUILogs.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <SUIControllerObserver>
 
 @end
 
@@ -16,6 +12,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[SUIControllerEventManager sharedInstance] registerObserver:self forEvent:SUIViewControllerViewDidLoad byClass:UIViewController.class];
     // Override point for customization after application launch.
     return YES;
 }
@@ -41,5 +38,16 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - Controller Event Observer
+
+- (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
+    ILog(@"Controller of class: %@ is on event: %zd", NSStringFromClass(controller.class), event);
+    if ([controller isKindOfClass:[ViewController class]]) {
+        ViewController *viewController = (ViewController *) controller;
+        [viewController setPropertyInjected:YES];
+    }
+}
+
 
 @end
