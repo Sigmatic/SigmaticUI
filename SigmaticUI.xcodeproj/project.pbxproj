@@ -99,7 +99,7 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
-		B77579F81A3A2EE1D82161C1 /* UIViewController */ = {
+		B77579F81A3A2EE1D82161C1 /* UIViewControllerEvents */ = {
 			isa = PBXGroup;
 			children = (
 				B77572C30549CEC52B8B4F81 /* SUIViewControllerMonitoring.m */,
@@ -110,7 +110,7 @@
 				B7757B64CCB87B6A6B930FCF /* SUIControllerEventObservers.m */,
 				B77572ACACF4FD8B2F3CA9D1 /* SUIControllerEventObservers.h */,
 			);
-			path = UIViewController;
+			path = UIViewControllerEvents;
 			sourceTree = "<group>";
 		};
 		B7757A933FD3E964E27EA73E /* Helper */ = {
@@ -156,7 +156,7 @@
 				D54E24D51B313EA60046E899 /* Supporting Files */,
 				B7757A933FD3E964E27EA73E /* Helper */,
 				B775784E1ED5C694FF0B872D /* UIView */,
-				B77579F81A3A2EE1D82161C1 /* UIViewController */,
+				B77579F81A3A2EE1D82161C1 /* UIViewControllerEvents */,
 			);
 			path = SigmaticUI;
 			sourceTree = "<group>";
@@ -427,7 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SigmaticUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -438,7 +438,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SigmaticUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
