@@ -7,21 +7,21 @@
 @property(nonatomic) CGFloat width;
 @property(nonatomic) CGFloat height;
 
-- (instancetype)alignLeft;
+- (void)alignLeft;
 
-- (instancetype)alignLeft:(CGFloat)margin;
+- (void)alignLeft:(CGFloat)margin;
 
-- (instancetype)alignTop;
+- (void)alignTop;
 
-- (instancetype)alignTop:(CGFloat)margin;
+- (void)alignTop:(CGFloat)margin;
 
-- (instancetype)alignRight;
+- (void)alignRight;
 
-- (instancetype)alignRight:(CGFloat)margin;
+- (void)alignRight:(CGFloat)margin;
 
-- (instancetype)alignBottom;
+- (void)alignBottom;
 
-- (instancetype)alignBottom:(CGFloat)margin;
+- (void)alignBottom:(CGFloat)margin;
 
 - (void)alignLeftOfView:(UIView *)siblingView;
 
@@ -39,13 +39,13 @@
 
 - (void)alignBelowView:(UIView *)siblingView margin:(CGFloat)margin;
 
-- (instancetype)moveLeft:(CGFloat)points;
+- (void)moveLeft:(CGFloat)points;
 
-- (instancetype)moveUp:(CGFloat)points;
+- (void)moveUp:(CGFloat)points;
 
-- (instancetype)moveRight:(CGFloat)points;
+- (void)moveRight:(CGFloat)points;
 
-- (instancetype)moveDown:(CGFloat)points;
+- (void)moveDown:(CGFloat)points;
 
 - (void)centerInSuperview;
 

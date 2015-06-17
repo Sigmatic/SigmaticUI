@@ -46,48 +46,44 @@
 
 #pragma mark - Align
 
-- (instancetype)alignLeft {
-    return [self alignLeft:0];
+- (void)alignLeft {
+    [self alignLeft:0];
 }
 
-- (instancetype)alignLeft:(CGFloat)margin {
+- (void)alignLeft:(CGFloat)margin {
     self.x = margin;
-    return self;
 }
 
-- (instancetype)alignTop {
-    return [self alignTop:0];
+- (void)alignTop {
+    [self alignTop:0];
 }
 
-- (instancetype)alignTop:(CGFloat)margin {
+- (void)alignTop:(CGFloat)margin {
     self.y = margin;
-    return self;
 }
 
-- (instancetype)alignRight {
-    return [self alignRight:0];
+- (void)alignRight {
+    [self alignRight:0];
 }
 
-- (instancetype)alignRight:(CGFloat)margin {
+- (void)alignRight:(CGFloat)margin {
     if (self.superview == nil) {
-        return self;
+        return;
     }
     CGFloat superviewWidth = self.superview.width;
     self.x = superviewWidth - self.width - margin;
-    return self;
 }
 
-- (instancetype)alignBottom {
-    return [self alignBottom:0];
+- (void)alignBottom {
+    [self alignBottom:0];
 }
 
-- (instancetype)alignBottom:(CGFloat)margin {
+- (void)alignBottom:(CGFloat)margin {
     if (self.superview == nil) {
-        return self;
+        return;
     }
     CGFloat superviewHeight = self.superview.height;
     self.y = superviewHeight - self.height - margin;
-    return self;
 }
 
 #pragma mark - Align In Respect to View
@@ -130,24 +126,20 @@
 
 #pragma mark - Move
 
-- (instancetype)moveLeft:(CGFloat)points {
+- (void)moveLeft:(CGFloat)points {
     self.x = self.x - points;
-    return self;
 }
 
-- (instancetype)moveUp:(CGFloat)points {
+- (void)moveUp:(CGFloat)points {
     self.y = self.y - points;
-    return self;
 }
 
-- (instancetype)moveRight:(CGFloat)points {
+- (void)moveRight:(CGFloat)points {
     self.x = self.x + points;
-    return self;
 }
 
-- (instancetype)moveDown:(CGFloat)points {
+- (void)moveDown:(CGFloat)points {
     self.y = self.y + points;
-    return self;
 }
 
 #pragma mark - Center
