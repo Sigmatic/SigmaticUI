@@ -1,6 +1,6 @@
 #import "SUIViewFrame.h"
 
-@implementation UIView (Frame)
+@implementation UIView (SUIFrame)
 
 #pragma mark - Get Set Frame
 

@@ -4,12 +4,11 @@
 @implementation SUIViewSorting
 
 + (NSArray *)sortViews:(NSArray *)views byPositionBasedOnView:(UIView *)view {
-    //TODO: sorting still not 100%
     NSComparator comparatorBlock = ^(UIView *obj1, UIView *obj2) {
         if (obj1.x == obj2.x && obj1.y == obj2.y) {
             return NSOrderedSame;
         }
-        if ([SUIViewSorting isView:obj1 beforeView:obj2 basedOnView:view]) {
+        if ([SUIViewSorting isView:obj1 beforeView:obj2]) {
             return NSOrderedAscending;
         }
         return NSOrderedDescending;
@@ -19,13 +18,13 @@
     return [mutableViews copy];
 }
 
-+ (BOOL)isView:(UIView *)firstView beforeView:(UIView *)secondView basedOnView:(UIView *)superview {
-    CGRect firstFrame = [superview convertRect:firstView.frame fromView:firstView.superview];
-    CGRect secondFrame = [superview convertRect:secondView.frame fromView:secondView.superview];
-    if (firstFrame.origin.y <= secondFrame.origin.y) {
++ (BOOL)isView:(UIView *)firstView beforeView:(UIView *)secondView {
+    CGRect firstFrame = [firstView.superview convertRect:firstView.frame toView:nil];
+    CGRect secondFrame = [secondView.superview convertRect:secondView.frame toView:nil];
+    if (firstFrame.origin.y < secondFrame.origin.y) {
         return YES;
     }
-    return firstFrame.origin.x <= secondFrame.origin.x;
+    return firstFrame.origin.x < secondFrame.origin.x;
 }
 
 @end

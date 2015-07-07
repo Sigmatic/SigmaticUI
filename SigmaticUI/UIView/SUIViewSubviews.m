@@ -1,9 +1,9 @@
 #import "SUIViewSubviews.h"
-#import "SUINSArrayExtensions.h"
 #import "SUIViewSorting.h"
+#import <SigmaticOC/SOCArrayExtension.h>
 
 
-@implementation UIView (Subviews)
+@implementation UIView (SUISubviews)
 
 - (void)removeAllSubviews {
     for (UIView *view in [self.subviews copy]) {

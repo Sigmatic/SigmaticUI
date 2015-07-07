@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface UIView(Frame)
+@interface UIView(SUIFrame)
 @property(nonatomic) CGFloat x;
 @property(nonatomic) CGFloat y;
 @property(nonatomic) CGFloat width;
