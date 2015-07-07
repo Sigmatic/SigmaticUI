@@ -27,7 +27,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     NSArray *textInputViews = [self.view textInputSubviews];
-    ILog(@"The views are %@", textInputViews);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

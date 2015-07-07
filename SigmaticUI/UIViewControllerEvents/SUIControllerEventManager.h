@@ -6,7 +6,9 @@
 typedef NS_ENUM(NSInteger , SUIViewControllerEvent) {
     SUIViewControllerViewDidLoad,
     SUIViewControllerViewWillAppear,
+    SUIViewControllerFirstViewWillAppear,
     SUIViewControllerViewDidAppear,
+    SUIViewControllerFirstViewDidAppear,
     SUIViewControllerViewWillDisappear,
     SUIViewControllerViewDidDisappear,
 };
@@ -16,6 +18,10 @@ typedef NS_ENUM(NSInteger , SUIViewControllerEvent) {
 + (instancetype)sharedInstance;
 
 - (void)registerObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;
+
+- (void)removeObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;
+
+- (void)removeObserver:(id <SUIControllerObserver>)observer;
 
 - (void)registerEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)viewController;
 

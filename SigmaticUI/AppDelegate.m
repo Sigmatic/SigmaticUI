@@ -3,6 +3,7 @@
 #import "ViewController.h"
 #import "SUIControllerObserver.h"
 #import "SUILogs.h"
+#import "SUISubViewController.h"
 
 @interface AppDelegate () <SUIControllerObserver>
 
@@ -12,7 +13,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[SUIControllerEventManager sharedInstance] registerObserver:self forEvent:SUIViewControllerViewDidLoad byClass:UIViewController.class];
+    [[SUIControllerEventManager sharedInstance] registerObserver:self forEvent:SUIViewControllerFirstViewDidAppear byClass:ViewController.class];
+    [[SUIControllerEventManager sharedInstance] registerObserver:self forEvent:SUIViewControllerViewDidAppear byClass:SUISubViewController.class];
     // Override point for customization after application launch.
     return YES;
 }
