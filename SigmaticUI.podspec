@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '6.0'
 
+  s.public_header_files = 'SigmaticUI/Classes/**/*.h'
+  s.source_files = 'SigmaticUI/Classes/**/*.{h,m}', 'SigmaticUI/Classes/SigmaticUI.h'
+
   s.dependency 'SigmaticOC', '~> 1.0'
 
-  s.public_header_files = 'SigmaticUI/*.h'
-  s.source_files = 'SigmaticUI/Helper/*.{h,m}', 'SigmaticUI/UIView/*.{h,m}', 'SigmaticUI/UIViewControllerEvents/*.{h,m}', 'SigmaticUI/SigmaticUI.h'
-  s.dependency 'SigmaticOC', '~> 1.0'
 end
