@@ -2,7 +2,6 @@
 #import "SUIControllerEventManager.h"
 #import "ViewController.h"
 #import "SUIControllerObserver.h"
-#import "SUILogs.h"
 #import "SUISubViewController.h"
 
 @interface AppDelegate () <SUIControllerObserver>
@@ -44,7 +43,7 @@
 #pragma mark - Controller Event Observer
 
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
-    ILog(@"Controller of class: %@ is on event: %zd", NSStringFromClass(controller.class), event);
+    NSLog(@"Controller of class: %@ is on event: %zd", NSStringFromClass(controller.class), event);
     if ([controller isKindOfClass:[ViewController class]]) {
         ViewController *viewController = (ViewController *) controller;
         [viewController setPropertyInjected:YES];

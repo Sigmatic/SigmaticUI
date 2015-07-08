@@ -1,5 +1,4 @@
 #import "ViewController.h"
-#import "SUILogs.h"
 #import "SUIViewSubviews.h"
 
 @interface ViewController ()
@@ -10,7 +9,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ILog(@"is property injected? %@", self.propertyInjected ? @"Yes" : @"No");
+    NSLog(@"is property injected? %@", self.propertyInjected ? @"Yes" : @"No");
     // Do any additional setup after loading the view, typically from a nib.
 }
 
