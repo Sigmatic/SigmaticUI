@@ -123,13 +123,6 @@
 			path = UIViewControllerEvents;
 			sourceTree = "<group>";
 		};
-		B7757912E9E3BF0ADD15C63D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		BE7439579E096CC2E2AF56C3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +165,6 @@
 				D54E24E21B313EA60046E899 /* Images.xcassets */,
 				D54E24E41B313EA60046E899 /* LaunchScreen.xib */,
 				D54E24D51B313EA60046E899 /* Supporting Files */,
-				B7757912E9E3BF0ADD15C63D /* Classes */,
 				B77579BA2A532E0AE344D8BA /* SigmaticUI.h */,
 				B775781F22D73548A334EA5A /* UIViewControllerEvents */,
 				B7757787D43B28E250F402FF /* UIView */,

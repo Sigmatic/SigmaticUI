@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'UIViewControllerEvents' do |ss|
-        ss.source_files = 'SigmaticOC/UIViewControllerEvents/*.{h,m}'
+      ss.source_files = 'SigmaticOC/UIViewControllerEvents/*.{h,m}'
   end
 
 end
