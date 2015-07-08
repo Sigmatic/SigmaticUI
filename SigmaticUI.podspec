@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
   s.dependency 'SigmaticOC', '~> 1.0'
 
   s.subspec 'UIView' do |ss|
-      ss.source_files = 'SigmaticOC/UIView/*.{h,m}'
+      ss.source_files = 'SigmaticUI/UIView/*.{h,m}'
   end
 
   s.subspec 'UIViewControllerEvents' do |ss|
-      ss.source_files = 'SigmaticOC/UIViewControllerEvents/*.{h,m}'
+      ss.source_files = 'SigmaticUI/UIViewControllerEvents/*.{h,m}'
   end
 
 end
