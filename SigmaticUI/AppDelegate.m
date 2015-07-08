@@ -3,6 +3,8 @@
 #import "ViewController.h"
 #import "SUIControllerObserver.h"
 #import "SUISubViewController.h"
+#import "SUIViewControllerMonitoring.h"
+#import "SOCBoolSet.h"
 
 @interface AppDelegate () <SUIControllerObserver>
 
@@ -14,6 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[SUIControllerEventManager sharedInstance] registerObserver:self forEvent:SUIViewControllerFirstViewDidAppear byClass:ViewController.class];
     [[SUIControllerEventManager sharedInstance] registerObserver:self forEvent:SUIViewControllerViewDidAppear byClass:SUISubViewController.class];
+    [[SUIControllerEventManager sharedInstance] registerObserver:self forEvent:SUIViewControllerViewDidDisappear byClass:ViewController.class];
     // Override point for customization after application launch.
     return YES;
 }
@@ -44,6 +47,7 @@
 
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
     NSLog(@"Controller of class: %@ is on event: %zd", NSStringFromClass(controller.class), event);
+    NSLog(@"is visible? %@", [[SOCBoolSet trueFalseSet] describe:controller.isVisible]);
     if ([controller isKindOfClass:[ViewController class]]) {
         ViewController *viewController = (ViewController *) controller;
         [viewController setPropertyInjected:YES];

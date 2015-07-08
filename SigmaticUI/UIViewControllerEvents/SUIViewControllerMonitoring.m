@@ -2,6 +2,14 @@
 #import "SUIControllerEventManager.h"
 #import <objc/runtime.h>
 
+@interface UIViewController (MonitoringPrivate)
+
+@property(nonatomic) BOOL willAppearFirstTimeDone;
+@property(nonatomic) BOOL didAppearFirstTimeDone;
+@property(nonatomic) BOOL isVisibleToggle;
+
+@end
+
 @implementation UIViewController (Monitoring)
 
 + (void)load {
@@ -47,20 +55,21 @@
 
 - (void)sui_viewWillAppear:(BOOL)animated {
     [self sui_viewWillAppear:animated];
-    if (![self didWillAppearFirstTime]) {
-        [self setDidWillAppearFirstTime:YES];
+    [[SUIControllerEventManager sharedInstance] registerEvent:SUIViewControllerViewWillAppear byViewController:self];
+    if (![self willAppearFirstTimeDone]) {
+        [self setWillAppearFirstTimeDone:YES];
         [self firstViewWillAppear:animated];
     }
-    [[SUIControllerEventManager sharedInstance] registerEvent:SUIViewControllerViewWillAppear byViewController:self];
 }
 
 - (void)sui_viewDidAppear:(BOOL)animated {
     [self sui_viewDidAppear:animated];
-    if (![self didDidAppearFirstTime]) {
-        [self setDidDidAppearFirstTime:YES];
+    [self setIsVisibleToggle:YES];
+    [[SUIControllerEventManager sharedInstance] registerEvent:SUIViewControllerViewDidAppear byViewController:self];
+    if (![self didAppearFirstTimeDone]) {
+        [self setDidAppearFirstTimeDone:YES];
         [self firstViewDidAppear:animated];
     }
-    [[SUIControllerEventManager sharedInstance] registerEvent:SUIViewControllerViewDidAppear byViewController:self];
 }
 
 - (void)sui_viewWillDisappear:(BOOL)animated {
@@ -70,6 +79,7 @@
 
 - (void)sui_viewDidDisappear:(BOOL)animated {
     [self sui_viewDidDisappear:animated];
+    [self setIsVisibleToggle:NO];
     [[SUIControllerEventManager sharedInstance] registerEvent:SUIViewControllerViewDidDisappear byViewController:self];
 }
 
@@ -81,24 +91,38 @@
     [[SUIControllerEventManager sharedInstance] registerEvent:SUIViewControllerFirstViewDidAppear byViewController:self];
 }
 
+- (BOOL)isVisible {
+    return [self isVisibleToggle];
+}
+
+
 #pragma mark - Get Set appear property
 
-- (BOOL)didWillAppearFirstTime {
-    NSNumber *value = objc_getAssociatedObject(self, @selector(didWillAppearFirstTime));
+- (BOOL)willAppearFirstTimeDone {
+    NSNumber *value = objc_getAssociatedObject(self, @selector(willAppearFirstTimeDone));
     return value.boolValue;
 }
 
-- (void)setDidWillAppearFirstTime:(BOOL)didWillAppearFirstTime {
-    objc_setAssociatedObject(self, @selector(didWillAppearFirstTime), @(didWillAppearFirstTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setWillAppearFirstTimeDone:(BOOL)willAppearFirstTimeDone {
+    objc_setAssociatedObject(self, @selector(willAppearFirstTimeDone), @(willAppearFirstTimeDone), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BOOL)didDidAppearFirstTime {
-    NSNumber *value = objc_getAssociatedObject(self, @selector(didDidAppearFirstTime));
+- (BOOL)didAppearFirstTimeDone {
+    NSNumber *value = objc_getAssociatedObject(self, @selector(didAppearFirstTimeDone));
     return value.boolValue;
 }
 
-- (void)setDidDidAppearFirstTime:(BOOL)didDidAppearFirstTime {
-    objc_setAssociatedObject(self, @selector(didDidAppearFirstTime), @(didDidAppearFirstTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setDidAppearFirstTimeDone:(BOOL)didAppearFirstTimeDone {
+    objc_setAssociatedObject(self, @selector(didAppearFirstTimeDone), @(didAppearFirstTimeDone), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)isVisibleToggle {
+    NSNumber *value = objc_getAssociatedObject(self, @selector(isVisibleToggle));
+    return value.boolValue;
+}
+
+- (void)setIsVisibleToggle:(BOOL)isVisibleToggle {
+    objc_setAssociatedObject(self, @selector(isVisibleToggle), @(isVisibleToggle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
