@@ -13,14 +13,13 @@ Pod::Spec.new do |s|
   s.public_header_files = 'SigmaticUI/*.h'
   s.source_files = 'SigmaticUI/SigmaticUI.h'
 
-  s.dependency 'SigmaticOC', '~> 1.0'
-
   s.subspec 'UIView' do |ss|
-      ss.source_files = 'SigmaticUI/UIView/*.{h,m}'
+    ss.dependency 'SigmaticOC', '~> 1.0'
+    ss.source_files = 'SigmaticUI/UIView/*.{h,m}'
   end
 
   s.subspec 'UIViewControllerEvents' do |ss|
-      ss.source_files = 'SigmaticUI/UIViewControllerEvents/*.{h,m}'
+    ss.source_files = 'SigmaticUI/UIViewControllerEvents/*.{h,m}'
   end
 
 end
