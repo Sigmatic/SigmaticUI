@@ -26,7 +26,7 @@
     [observers addObserver:observer];
 }
 
-- (void)removeObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass {
+- (void)removeObserver:(id <SUIControllerObserver>)observer fromEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass {
     NSLog(@"Removing %@ from event %zd for controllers of class %@", NSStringFromClass([observer class]),
             event, NSStringFromClass(viewControllerClass));
     SUIControllerEventObservers *observers = [self controllerEventObserverForEvent:event byClass:viewControllerClass];

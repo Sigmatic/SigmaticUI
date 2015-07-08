@@ -30,7 +30,7 @@
     NSArray *respondingTextViews = [self filterRespondingViews:textViews];
 
     NSArray *allResponders = [respondingTextFields arrayByAddingObjectsFromArray:respondingTextViews];
-    return [SUIViewSorting sortViews:allResponders byPositionBasedOnView:self];
+    return [SUIViewSorting sortViews:allResponders];
 }
 
 - (NSArray *)filterRespondingViews:(NSArray *)responders {

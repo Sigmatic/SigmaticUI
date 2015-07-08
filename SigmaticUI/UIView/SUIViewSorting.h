@@ -3,6 +3,7 @@
 
 @interface SUIViewSorting : NSObject
 
-+ (NSArray *)sortViews:(NSArray *)views byPositionBasedOnView:(UIView *)view;
+/*Sort views based on their location on screen*/
++ (NSArray *)sortViews:(NSArray *)views;
 
 @end

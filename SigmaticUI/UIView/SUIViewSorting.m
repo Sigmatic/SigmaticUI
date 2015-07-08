@@ -3,7 +3,7 @@
 
 @implementation SUIViewSorting
 
-+ (NSArray *)sortViews:(NSArray *)views byPositionBasedOnView:(UIView *)view {
++ (NSArray *)sortViews:(NSArray *)views {
     NSComparator comparatorBlock = ^(UIView *obj1, UIView *obj2) {
         if (obj1.x == obj2.x && obj1.y == obj2.y) {
             return NSOrderedSame;
