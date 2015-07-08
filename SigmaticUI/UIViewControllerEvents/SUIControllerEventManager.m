@@ -14,21 +14,27 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[SUIControllerEventManager alloc] init];
+        NSLog(@"%@ started...", NSStringFromClass(self.class));
     });
     return sharedInstance;
 }
 
 - (void)registerObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass {
+    NSLog(@"Adding %@ for event %zd for controllers of class %@", NSStringFromClass([observer class]),
+            event, NSStringFromClass(viewControllerClass));
     SUIControllerEventObservers *observers = [self controllerEventObserverForEvent:event byClass:viewControllerClass];
     [observers addObserver:observer];
 }
 
 - (void)removeObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass {
+    NSLog(@"Removing %@ from event %zd for controllers of class %@", NSStringFromClass([observer class]),
+            event, NSStringFromClass(viewControllerClass));
     SUIControllerEventObservers *observers = [self controllerEventObserverForEvent:event byClass:viewControllerClass];
     [observers removeObserver:observer];
 }
 
 - (void)removeObserver:(id <SUIControllerObserver>)observer {
+    NSLog(@"Removing %@ from all events for all classes", NSStringFromClass([observer class]));
     for (NSNumber *eventNumber in self.eventObservers.allKeys) {
         SUIViewControllerEvent event = (SUIViewControllerEvent) eventNumber.integerValue;
         NSMutableDictionary *allObserversForEvent = [self allObserversForEvent:event];
