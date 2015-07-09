@@ -1,6 +1,5 @@
 #import "SUIViewSubviews.h"
 #import "SUIViewSorting.h"
-#import <SigmaticOC/SOCArrayExtension.h>
 
 
 @implementation UIView (SUISubviews)
@@ -13,7 +12,7 @@
 
 - (NSArray *)subviewsWithClass:(Class)aClass {
     NSMutableArray *results = [NSMutableArray new];
-    NSArray *subviewsWithClass = [self.subviews objectsWithClass:aClass];
+    NSArray *subviewsWithClass = [self filterArray:self.subviews objectsWithClass:aClass];
     [results addObjectsFromArray:subviewsWithClass];
     for (UIView *subview in self.subviews) {
         NSArray *subSubviews = [subview subviewsWithClass:aClass];
@@ -38,6 +37,16 @@
     for (UIResponder *responder in responders) {
         if ([responder canBecomeFirstResponder]) {
             [results addObject:responder];
+        }
+    }
+    return [results copy];
+}
+
+- (NSArray *)filterArray:(NSArray *)array objectsWithClass:(Class)aClass {
+    NSMutableArray *results = [NSMutableArray new];
+    for (id object in array) {
+        if ([object isKindOfClass:aClass]) {
+            [results addObject:object];
         }
     }
     return [results copy];

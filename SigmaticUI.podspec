@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
   s.source_files = 'SigmaticUI/SigmaticUI.h'
 
   s.subspec 'UIView' do |ss|
-    ss.dependency 'SigmaticOC', '~> 1.0'
     ss.source_files = 'SigmaticUI/UIView/*.{h,m}'
   end
 
