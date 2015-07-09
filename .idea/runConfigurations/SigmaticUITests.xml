@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="SigmaticUITests" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="SigmaticUI" TARGET_NAME="SigmaticUITests" CONFIG_NAME="Debug" SCHEME_NAME="SigmaticUITests" TEST_MODE="SUITE_TEST">
-    <envs />
-    <method />
-  </configuration>
-</component>
