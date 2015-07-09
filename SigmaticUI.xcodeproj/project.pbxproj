@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A1A1461A50FB1FA322E8C08 /* libPods-SigmaticUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D051071A4C238CAE6026A2 /* libPods-SigmaticUI.a */; };
 		B7757001067DCEFE478FAFA2 /* SUIViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757715CE7C7BE378E79525 /* SUIViewFrame.m */; };
 		B77574D1C5A5D9C03E22C144 /* SUIViewSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = B77573A810ABC40C6ED95580 /* SUIViewSorting.m */; };
 		B7757B31E98AB2918088BA9B /* SUIViewControllerMonitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */; };
@@ -74,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A1A1461A50FB1FA322E8C08 /* libPods-SigmaticUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,11 +203,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D54E24F51B313EA60046E899 /* Build configuration list for PBXNativeTarget "SigmaticUI" */;
 			buildPhases = (
-				E3FC718D9B106D1D08FB0CA3 /* Check Pods Manifest.lock */,
 				D54E24CE1B313EA50046E899 /* Sources */,
 				D54E24CF1B313EA50046E899 /* Frameworks */,
 				D54E24D01B313EA50046E899 /* Resources */,
-				9D8188940C90EACE4CBB58B0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,39 +291,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9D8188940C90EACE4CBB58B0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SigmaticUI/Pods-SigmaticUI-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E3FC718D9B106D1D08FB0CA3 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D54E24CE1B313EA50046E899 /* Sources */ = {
