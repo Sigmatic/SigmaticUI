@@ -54,4 +54,5 @@
 - (void)centerVertically;
 
 - (void)scale:(CGFloat)scale;
+
 @end

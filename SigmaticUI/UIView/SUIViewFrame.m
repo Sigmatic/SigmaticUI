@@ -166,6 +166,10 @@
 #pragma mark - Expand and Scale
 
 - (void)scale:(CGFloat)scale {
+    if (scale <= 0) {
+        NSLog(@"Warning: scaling to zero or below. Using abosolute value");
+        scale = fabs(scale);
+    }
     CGPoint currentCenter = self.center;
     self.width = self.width * scale;
     self.height = self.height * scale;
