@@ -26,6 +26,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     NSArray *textInputViews = [self.view textInputSubviews];
+    NSLog(@"Count %zd", textInputViews.count);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
