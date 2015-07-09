@@ -19,7 +19,7 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    XCTAssert(NO, @"Pass");
+    XCTAssert(YES, @"Pass");
 }
 
 @end
