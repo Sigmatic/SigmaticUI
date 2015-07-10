@@ -11,6 +11,7 @@
 		B7757001067DCEFE478FAFA2 /* SUIViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757715CE7C7BE378E79525 /* SUIViewFrame.m */; };
 		B77573B952BDB5696AD4C48F /* SUIViewFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757DBE2819A09E1F8B1A66 /* SUIViewFrameTests.m */; };
 		B77574D1C5A5D9C03E22C144 /* SUIViewSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = B77573A810ABC40C6ED95580 /* SUIViewSorting.m */; };
+		B775758B8D964E1AF8A389C8 /* SUIControlCenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757BB7C74AFCF719CB6219 /* SUIControlCenterTests.m */; };
 		B7757B31E98AB2918088BA9B /* SUIViewControllerMonitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */; };
 		B7757BE229E8FBB1FF0B315F /* SUIControlCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B775766877BD7E2874C17F86 /* SUIControlCenter.m */; };
 		B7757BE92033B67519F04767 /* SUIControllerEventObservers.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757234C87646843AE21C3E /* SUIControllerEventObservers.m */; };
@@ -48,6 +49,7 @@
 		B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewControllerMonitoring.m; sourceTree = "<group>"; };
 		B77579BA2A532E0AE344D8BA /* SigmaticUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigmaticUI.h; sourceTree = "<group>"; };
 		B7757B6E8E56E77808599366 /* SUIViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewFrame.h; sourceTree = "<group>"; };
+		B7757BB7C74AFCF719CB6219 /* SUIControlCenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIControlCenterTests.m; sourceTree = "<group>"; };
 		B7757C3F63F7DF0B08ED76CB /* SUIViewControllerMonitoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewControllerMonitoring.h; sourceTree = "<group>"; };
 		B7757C68938989DD07E13B5D /* SUIControllerEventObservers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIControllerEventObservers.h; sourceTree = "<group>"; };
 		B7757DB81404C1FCDAA0C8A7 /* SUIControlCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIControlCenter.h; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 			path = UIViewControllerEvents;
 			sourceTree = "<group>";
 		};
+		B7757B6687EF22A441996C5B /* UIViewControllerEvents */ = {
+			isa = PBXGroup;
+			children = (
+				B7757BB7C74AFCF719CB6219 /* SUIControlCenterTests.m */,
+			);
+			path = UIViewControllerEvents;
+			sourceTree = "<group>";
+		};
 		B7757CE7D65760ABB3F0C168 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 			children = (
 				D54E24EF1B313EA60046E899 /* Supporting Files */,
 				B7757CE7D65760ABB3F0C168 /* UIView */,
+				B7757B6687EF22A441996C5B /* UIViewControllerEvents */,
 			);
 			path = SigmaticUITests;
 			sourceTree = "<group>";
@@ -360,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77573B952BDB5696AD4C48F /* SUIViewFrameTests.m in Sources */,
+				B775758B8D964E1AF8A389C8 /* SUIControlCenterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
