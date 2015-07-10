@@ -73,9 +73,8 @@ Another simple example, injecting dependencies
  
 //In DependencyInjector
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
-    if ([controller respondsToSelector:@selector(setCommunicationService:)]) {
-        [constroller performSelector:@selector(setCommunicationService:) withObject:self.communicationService];
-    }
+    BaseCommViewController *commViewController = (BaseCommViewController *)controller;
+    commViewController setCommunicationService:self.communicationService];
 }
 ```
 
