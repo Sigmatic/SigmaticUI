@@ -58,7 +58,7 @@ Receive notifications for any event you're interested in, with any view controll
 }
 ```
 
-###### Dismiss all popovers
+###### Dismiss All Popovers
 
 User session is no longer valid and you have to dismiss everything?
 
@@ -69,7 +69,7 @@ for (UIPopoverController *popoverController in allPopovers) {
 }
 ```
 
-###### Logging view controller events
+###### Log View Controller Activities
 
 ```objective-c
 [[SUIControlCenter defaultCenter] registerObserver:controllerLogger
@@ -83,7 +83,7 @@ for (UIPopoverController *popoverController in allPopovers) {
 ```
 
 
-###### Injecting dependencies
+###### Inject Dependencies
 ```objective-c
 [[SUIControlCenter defaultCenter] registerObserver:dependencyInjector
                                              forEvents:SUIViewControllerViewDidLoad
