@@ -15,19 +15,48 @@ typedef NS_ENUM(NSInteger , SUIViewControllerEvent) {
 
 @interface SUIControlCenter : NSObject
 
-/*Shared monitoring manager*/
+///---------------------
+/// @name Initialization
+///---------------------
+
+/**
+Creates and returns the default `SUIControlCenter` object.
+*/
 + (instancetype)defaultCenter;
 
-/*Add observer for view controller events*/
+
+///---------------------
+/// @name Observation
+///---------------------
+
+/**
+Add observer for view controller events.
+@param observer The events observer that adopts the SUIControllerObserver protocol.
+@param event The event registering to receive notifications for.
+@param viewControllerClass The class type to receive notifications for.
+*/
 - (void)registerObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;
 
-- (NSArray *)viewControllersWithClass:(Class)aClass;
 
-/*Remove observer from view controller events*/
+/**
+Remove observer from view controller events.
+@param observer The events observer to remove.
+@param event The event that the observer is no longer interested int.
+@param viewControllerClass The class type to remove notifications for.
+*/
 - (void)removeObserver:(id <SUIControllerObserver>)observer fromEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;
 
-/*Remove observer from everything*/
+/**
+Remove observer from everything.
+@param observer The events observer to remove.
+*/
 - (void)removeObserver:(id <SUIControllerObserver>)observer;
+
+/**
+Get all view controller instances of a class type.
+@param aClass The class type to filter.
+*/
+- (NSArray *)viewControllersWithClass:(Class)aClass;
 
 /*NOT for manual use. Called by view controllers to register new events*/
 - (void)registerEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)viewController;

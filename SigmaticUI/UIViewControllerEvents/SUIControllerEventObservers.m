@@ -1,5 +1,6 @@
 #import "SUIControllerEventObservers.h"
 #import "SUIControllerObserver.h"
+#import "SOCMutableArrayExtension.h"
 
 @interface SUIControllerEventObservers ()
 @property(nonatomic) NSMutableArray *innerObservers;
@@ -16,12 +17,7 @@
 }
 
 - (void)addObserver:(id <SUIControllerObserver>)observer {
-    if (observer == nil) {
-        return;
-    }
-    if (![self.innerObservers containsObject:observer]) {
-        [self.innerObservers addObject:observer];
-    }
+    [self.innerObservers safeAddObjectIfNew:observer];
 }
 
 - (void)removeObserver:(id <SUIControllerObserver>)observer {

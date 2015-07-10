@@ -2,15 +2,27 @@
 #import <UIKit/UIKit.h>
 
 
-@interface UIViewController(Monitoring)
+@interface UIViewController (Monitoring)
 
-/*Updated property to maintain whether view is visible*/
+/**
+Updated property to maintain whether view is visible
+*/
 @property(nonatomic, readonly) BOOL isVisible;
 
-/*Callback for only the first view will appear*/
+///---------------------
+/// @name First Appearance
+///---------------------
+
+/**
+Callback for only the first view will appear
+@param animated Whether the view is presented with animation
+*/
 - (void)firstViewWillAppear:(BOOL)animated;
 
-/*Callback for only the first view did appear*/
+/**
+Callback for only the first view did appear
+@param animated Whether the view is presented with animation
+*/
 - (void)firstViewDidAppear:(BOOL)animated;
 
 @end

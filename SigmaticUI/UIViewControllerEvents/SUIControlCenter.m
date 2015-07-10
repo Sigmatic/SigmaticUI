@@ -55,7 +55,7 @@
 - (void)registerEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)viewController {
     [self notifyObserversOfClass:viewController.class viewController:viewController encounteredEvent:event];
     Class classSuperClass = viewController.superclass;
-    while(classSuperClass != UIResponder.class) {
+    while (classSuperClass != UIResponder.class) {
         [self notifyObserversOfClass:classSuperClass viewController:viewController encounteredEvent:event];
         classSuperClass = [classSuperClass superclass];
     }
