@@ -35,6 +35,7 @@ pod "SigmaticUI/UIViewControllerEvents"
 ##### UIView
 Easily change view dimensions and location. Move and align with respect to the superview or a sibling view.
 ```objective-c
+[submitButton setWidth:cancelButton.width];
 [submitButton alignRightOfView:cancelButton margin:7.f];
 ```
 
