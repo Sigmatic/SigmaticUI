@@ -63,7 +63,7 @@ Receive notifications for any event you're interested in, with any view controll
 User session is no longer valid and you have to dismiss everything?
 
 ```objective-c
-NSArray *allPopovers [[SUIControlCenter defaultCenter] viewControllersWithClass:UIPopoverController.class];
+NSArray *allPopovers = [[SUIControlCenter defaultCenter] viewControllersWithClass:UIPopoverController.class];
 for (UIPopoverController *popoverController in allPopovers) {
     [popoverController dismissPopoverAnimated:YES];
 }
