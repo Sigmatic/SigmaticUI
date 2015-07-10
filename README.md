@@ -11,7 +11,9 @@
 
 ## Overview
 
-//TODO
+Take back control of your views and controllers.
+<br />
+Sigmatic UI allows you to easily manage your views and view controllers from anywhere in your application.
 
 ## Installation
 
@@ -27,13 +29,18 @@ pod "SigmaticUI/<Subspec>"
 #example
 pod "SigmaticUI/UIViewControllerEvents"
 ```
-##### Available Subspecs
-- UIView
-- UIViewControllerEvents
+
+#### Available Subspecs
+
+##### UIView
+
+
+##### UIViewControllerEvents
+
 
 
 ## Documentation
-There will be more documentation in the coming days
+Documentation shall be available throught CocoaDocs shortly
 
 ## Contribution
 Can't say no to that!
