@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name     = 'SigmaticUI'
   s.version  = '1.0.0'
   s.license  = 'MIT'
-  s.summary  = 'Coaoa UI Platform and Utilities.'
+  s.summary  = 'Take back control of your views and controllers'
   s.homepage = 'https://github.com/Sigmatic/SigmaticUI'
   s.authors  = { 'Hisham Alabri' => 'hisham@alabri.co' }
   s.source   = { :git => 'https://github.com/Sigmatic/SigmaticUI.git', :tag => s.version, :submodules => true }
