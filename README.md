@@ -40,7 +40,7 @@ Easily change view dimensions and location. Move and align with respect to the s
 ```
 
 <br />
-Find all input text fields for and easily implement a 'Next' 'Previous' buttons on your keyboard. Already sorted based on their location.
+Find all input text fields for any view and easily implement a 'Next' 'Previous' buttons on your keyboard. Already sorted based on their location on screen.
 ```objective-c
 [formView textInputSubviews];
 ```
@@ -74,6 +74,16 @@ Receive notifications for any event you're interested in, with any view controll
 }
 ```
 
+###### Dismiss all popovers
+
+User session is no longer valid and you have to dimiss everything?
+
+```objective-c
+NSArray *allPopovers [[SUIControlCenter defaultCenter] viewControllersWithClass:UIPopoverController.class];
+for (UIPopoverController *popoverController in allPopovers) {
+    [popoverController dismissPopoverAnimated:YES];
+}
+```
 
 ###### Logging view controller events
 
