@@ -51,7 +51,7 @@ And many many more features
 
 The control center of all view controllers running in the app.
 <br />
-Receive notifications for any event your interested in, in any view controller type.
+Receive notifications for any event you're interested in, with any view controller type.
 
 ```objective-c
 [[SUIControlCenter defaultCenter] registerObserver:controllerLogger
@@ -68,8 +68,8 @@ Receive notifications for any event your interested in, in any view controller t
 Another simple example, injecting dependencies
 ```objective-c
 [[SUIControlCenter defaultCenter] registerObserver:dependencyInjector
-                                             forEvents:SUIViewControllerAllEvents
-                                               byClass:UIViewController.class];
+                                             forEvents:SUIViewControllerViewDidLoad
+                                               byClass:BaseCommViewController.class];
  
 //In DependencyInjector
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
