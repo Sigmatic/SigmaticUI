@@ -3,14 +3,15 @@
 
 @protocol SUIControllerObserver;
 
-typedef NS_ENUM(NSInteger , SUIViewControllerEvent) {
-    SUIViewControllerViewDidLoad,
-    SUIViewControllerViewWillAppear,
-    SUIViewControllerFirstViewWillAppear,
-    SUIViewControllerViewDidAppear,
-    SUIViewControllerFirstViewDidAppear,
-    SUIViewControllerViewWillDisappear,
-    SUIViewControllerViewDidDisappear,
+typedef NS_OPTIONS(NSUInteger, SUIViewControllerEvent) {
+    SUIViewControllerViewDidLoad = 1UL << 1,
+    SUIViewControllerViewWillAppear = 1UL << 2,
+    SUIViewControllerFirstViewWillAppear = 1UL << 3,
+    SUIViewControllerViewDidAppear = 1UL << 4,
+    SUIViewControllerFirstViewDidAppear = 1UL << 5,
+    SUIViewControllerViewWillDisappear = 1UL << 6,
+    SUIViewControllerViewDidDisappear = 1UL << 7,
+    SUIViewControllerAllEvents = SUIViewControllerViewDidLoad | SUIViewControllerViewWillAppear | SUIViewControllerFirstViewWillAppear | SUIViewControllerViewDidAppear | SUIViewControllerFirstViewDidAppear | SUIViewControllerViewWillDisappear | SUIViewControllerViewDidDisappear
 };
 
 @interface SUIControlCenter : NSObject
@@ -32,19 +33,19 @@ Creates and returns the default `SUIControlCenter` object.
 /**
 Add observer for view controller events.
 @param observer The events observer that adopts the SUIControllerObserver protocol.
-@param event The event registering to receive notifications for.
+@param events The events registering to receive notifications for.
 @param viewControllerClass The class type to receive notifications for.
 */
-- (void)registerObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;
+- (void)registerObserver:(id <SUIControllerObserver>)observer forEvents:(SUIViewControllerEvent)events byClass:(Class)viewControllerClass;
 
 
 /**
 Remove observer from view controller events.
 @param observer The events observer to remove.
-@param event The event that the observer is no longer interested int.
+@param events The events that the observer is no longer interested in.
 @param viewControllerClass The class type to remove notifications for.
 */
-- (void)removeObserver:(id <SUIControllerObserver>)observer fromEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;
+- (void)removeObserver:(id <SUIControllerObserver>)observer fromEvents:(SUIViewControllerEvent)events byClass:(Class)viewControllerClass;
 
 /**
 Remove observer from everything.

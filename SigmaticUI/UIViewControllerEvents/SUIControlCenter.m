@@ -22,23 +22,46 @@
     return sharedInstance;
 }
 
-- (void)registerObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass {
+- (void)registerObserver:(id <SUIControllerObserver>)observer forEvents:(SUIViewControllerEvent)events byClass:(Class)viewControllerClass {
     NSLog(@"Adding %@ for event %zd for controllers of class %@", NSStringFromClass([observer class]),
-            event, NSStringFromClass(viewControllerClass));
-    SUIControllerEventObservers *observers = [self controllerEventObserverForEvent:event byClass:viewControllerClass];
-    [observers addObserver:observer];
+            events, NSStringFromClass(viewControllerClass));
+    NSArray *eventObservers = [self controllerEventObserversForEvents:events controllerClass:viewControllerClass];
+    for (SUIControllerEventObservers *eventObserver in eventObservers) {
+        [eventObserver addObserver:observer];
+    }
 }
 
 - (NSArray *)viewControllersWithClass:(Class)aClass {
     return [self.allViewControllers objectsWithClass:aClass];
 }
 
-- (void)removeObserver:(id <SUIControllerObserver>)observer fromEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass {
+- (void)removeObserver:(id <SUIControllerObserver>)observer fromEvents:(SUIViewControllerEvent)events byClass:(Class)viewControllerClass {
     NSLog(@"Removing %@ from event %zd for controllers of class %@", NSStringFromClass([observer class]),
-            event, NSStringFromClass(viewControllerClass));
-    SUIControllerEventObservers *observers = [self controllerEventObserverForEvent:event byClass:viewControllerClass];
-    [observers removeObserver:observer];
+            events, NSStringFromClass(viewControllerClass));
+    NSArray *eventObservers = [self controllerEventObserversForEvents:events controllerClass:viewControllerClass];
+    for (SUIControllerEventObservers *eventObserver in eventObservers) {
+        [eventObserver removeObserver:observer];
+    }
 }
+
+- (NSArray *)controllerEventObserversForEvents:(SUIViewControllerEvent)events controllerClass:(Class)controllerClass {
+    NSMutableArray *observers = [NSMutableArray new];
+    [self addObserversIfEvents:events includesEvent:SUIViewControllerViewDidLoad forClass:controllerClass inArray:observers];
+    [self addObserversIfEvents:events includesEvent:SUIViewControllerViewWillAppear forClass:controllerClass inArray:observers];
+    [self addObserversIfEvents:events includesEvent:SUIViewControllerFirstViewWillAppear forClass:controllerClass inArray:observers];
+    [self addObserversIfEvents:events includesEvent:SUIViewControllerViewDidAppear forClass:controllerClass inArray:observers];
+    [self addObserversIfEvents:events includesEvent:SUIViewControllerFirstViewDidAppear forClass:controllerClass inArray:observers];
+    [self addObserversIfEvents:events includesEvent:SUIViewControllerViewWillDisappear forClass:controllerClass inArray:observers];
+    [self addObserversIfEvents:events includesEvent:SUIViewControllerViewDidDisappear forClass:controllerClass inArray:observers];
+    return observers;
+}
+
+- (void)addObserversIfEvents:(SUIViewControllerEvent)events includesEvent:(SUIViewControllerEvent)event forClass:(Class)controllerClass inArray:(NSMutableArray *)observers {
+    if (events & event) {
+        [observers addObject:[self controllerEventObserverForEvent:event byClass:controllerClass]];
+    }
+}
+
 
 - (void)removeObserver:(id <SUIControllerObserver>)observer {
     NSLog(@"Removing %@ from all events for all classes", NSStringFromClass([observer class]));

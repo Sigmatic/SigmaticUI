@@ -13,9 +13,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[SUIControlCenter defaultCenter] registerObserver:self forEvent:SUIViewControllerFirstViewDidAppear byClass:ViewController.class];
-    [[SUIControlCenter defaultCenter] registerObserver:self forEvent:SUIViewControllerViewDidAppear byClass:SUISubViewController.class];
-    [[SUIControlCenter defaultCenter] registerObserver:self forEvent:SUIViewControllerViewDidDisappear byClass:ViewController.class];
+    [[SUIControlCenter defaultCenter] registerObserver:self
+                                             forEvents: SUIViewControllerViewDidAppear | SUIViewControllerViewDidDisappear
+                                               byClass:ViewController.class];
     // Override point for customization after application launch.
     return YES;
 }
@@ -48,10 +48,6 @@
 
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
     NSLog(@"Controller of class: %@ is on event: %zd", NSStringFromClass(controller.class), event);
-    if ([controller isKindOfClass:[ViewController class]]) {
-        ViewController *viewController = (ViewController *) controller;
-        [viewController setPropertyInjected:YES];
-    }
 }
 
 
