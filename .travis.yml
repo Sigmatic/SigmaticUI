@@ -1,4 +1,4 @@
 language: objective-c
-xcode_project: SigmaticUI.xcodeproj
+xcode_workspace: SigmaticUI.xcworkspace
 xcode_scheme: SigmaticUITests
 xcode_sdk: iphonesimulator7.1

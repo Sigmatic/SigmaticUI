@@ -10,6 +10,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '6.0'
 
+  s.dependency 'SigmaticOC', '~> 1.0'
+
   s.public_header_files = 'SigmaticUI/*.h'
   s.source_files = 'SigmaticUI/SigmaticUI.h'
 

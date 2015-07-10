@@ -36,6 +36,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSArray *controllers = [[SUIControlCenter defaultCenter] viewControllersWithClass:[UIViewController class]];
+    NSLog(@"Number of view controllers %zd", controllers.count);
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
