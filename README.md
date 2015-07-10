@@ -75,7 +75,7 @@ Another simple example, injecting dependencies
 //In DependencyInjector
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
     BaseCommViewController *commViewController = (BaseCommViewController *)controller;
-    commViewController setCommunicationService:self.communicationService];
+    [commViewController setCommunicationService:self.communicationService];
 }
 ```
 
