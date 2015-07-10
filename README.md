@@ -76,7 +76,7 @@ Receive notifications for any event you're interested in, with any view controll
 
 ###### Dismiss all popovers
 
-User session is no longer valid and you have to dimiss everything?
+User session is no longer valid and you have to dismiss everything?
 
 ```objective-c
 NSArray *allPopovers [[SUIControlCenter defaultCenter] viewControllersWithClass:UIPopoverController.class];
@@ -112,7 +112,7 @@ for (UIPopoverController *popoverController in allPopovers) {
 }
 ```
 
-The possiblities are only limited by our imagination.
+I am sure you will have more imaginative ideas
 
 (%) These classes do not exist. They are here for illustration purposes only.
 
