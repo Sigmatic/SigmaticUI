@@ -33,10 +33,53 @@ pod "SigmaticUI/UIViewControllerEvents"
 #### Available Subspecs
 
 ##### UIView
+Easily change view dimensions and location. Move and align with respect to the superview or a sibling view.
+```objective-c
+[submitButton alignRightOfView:cancelButton margin:7.f];
+```
 
+<br />
+Find all input text fields for and easily implement a 'Next' 'Previous' buttons on your keyboard. Already sorted based on their location.
+```objective-c
+[formView textInputSubviews];
+```
+
+<br />
+And many many more features
 
 ##### UIViewControllerEvents
 
+The control center of all view controllers running in the app.
+<br />
+Receive notifications for any event your interested in, in any view controller type.
+
+```objective-c
+[[SUIControlCenter defaultCenter] registerObserver:controllerLogger
+                                             forEvents:SUIViewControllerAllEvents
+                                               byClass:UIViewController.class];
+ 
+//In ControllerLogger
+- (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
+    NSLog(@"Controller %@ is on event: %zd", NSStringFromClass(controller.class), event);
+}
+```
+
+<br />
+Another simple example, injecting dependencies
+```objective-c
+[[SUIControlCenter defaultCenter] registerObserver:dependencyInjector
+                                             forEvents:SUIViewControllerAllEvents
+                                               byClass:UIViewController.class];
+ 
+//In DependencyInjector
+- (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
+    if ([controller respondsToSelector:@selector(setCommunicationService:)]) {
+        [constroller performSelector:@selector(setCommunicationService:) withObject:self.communicationService];
+    }
+}
+```
+
+The possiblities are only limited by our imagination.
 
 
 ## Documentation
