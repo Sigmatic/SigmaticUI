@@ -30,9 +30,9 @@ pod "SigmaticUI/<Subspec>"
 pod "SigmaticUI/UIViewControllerEvents"
 ```
 
-#### Available Subspecs
+### Available Subspecs
 
-##### UIView
+#### UIView
 Easily change view dimensions and location. Move and align with respect to the superview or a sibling view.
 ```objective-c
 [submitButton setWidth:cancelButton.width];
@@ -48,31 +48,54 @@ Find all input text fields for and easily implement a 'Next' 'Previous' buttons 
 <br />
 And many many more features
 
-##### UIViewControllerEvents
+#### UIViewControllerEvents
 
 The control center of all view controllers running in the app.
 <br />
 Receive notifications for any event you're interested in, with any view controller type.
+
+
+##### Example use-cases
+
+###### Simple User Engagement Monitor
+```objective-c
+[[SUIControlCenter defaultCenter] registerObserver:enagementMonitor
+                                             forEvents:SUIViewControllerViewDidAppear | SUIViewControllerViewDidDisappear
+                                               byClass:UIViewController.class];
+ 
+//In EnagementMonitor(%)
+- (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
+    if (event == SUIViewControllerViewDidAppear) {
+        [self startEngagementTimerForController:controller];
+    } else {
+        [self stopEngagementTimerForController:controller];
+        [self recordSessionForController:controller];
+    }
+}
+```
+
+
+###### Logging view controller events
 
 ```objective-c
 [[SUIControlCenter defaultCenter] registerObserver:controllerLogger
                                              forEvents:SUIViewControllerAllEvents
                                                byClass:UIViewController.class];
  
-//In ControllerLogger
+//In ControllerLogger(%)
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
     NSLog(@"Controller %@ is on event: %zd", NSStringFromClass(controller.class), event);
 }
 ```
 
-<br />
-Another simple example, injecting dependencies
+
+###### Injecting dependencies
 ```objective-c
 [[SUIControlCenter defaultCenter] registerObserver:dependencyInjector
                                              forEvents:SUIViewControllerViewDidLoad
                                                byClass:BaseCommViewController.class];
  
-//In DependencyInjector
+//In DependencyInjector(%)
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
     BaseCommViewController *commViewController = (BaseCommViewController *)controller;
     [commViewController setCommunicationService:self.communicationService];
@@ -81,9 +104,14 @@ Another simple example, injecting dependencies
 
 The possiblities are only limited by our imagination.
 
+(%) These classes do not exist. They are here for illustration purposes only.
 
 ## Documentation
 Documentation shall be available throught CocoaDocs shortly
 
 ## Contribution
 Can't say no to that!
+
+## License
+
+SigmaticUI is released under the MIT license. See LICENSE for details.
