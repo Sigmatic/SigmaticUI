@@ -117,7 +117,7 @@ Find all input text fields for any view and easily implement a 'Next' 'Previous'
 And many many more features
 
 ## Documentation
-Documentation shall be available throught CocoaDocs shortly
+Documentation shall be available through CocoaDocs shortly
 
 ## Contribution
 Can't say no to that!
