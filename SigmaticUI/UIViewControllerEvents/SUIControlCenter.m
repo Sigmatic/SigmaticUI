@@ -1,19 +1,22 @@
-#import "SUIControllerEventManager.h"
+#import "SUIControlCenter.h"
 #import "SUIControllerObserver.h"
 #import "SUIControllerEventObservers.h"
+#import "SOCMutableArrayExtension.h"
+#import "SOCArrayExtension.h"
 
 
-@interface SUIControllerEventManager ()
+@interface SUIControlCenter ()
 @property(nonatomic) NSMutableDictionary *eventObservers;
+@property(nonatomic) NSMutableArray *allViewControllers;
 @end
 
-@implementation SUIControllerEventManager
+@implementation SUIControlCenter
 
-+ (instancetype)sharedInstance {
-    static SUIControllerEventManager *sharedInstance = nil;
++ (instancetype)defaultCenter {
+    static SUIControlCenter *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[SUIControllerEventManager alloc] init];
+        sharedInstance = [[SUIControlCenter alloc] init];
         NSLog(@"%@ started...", NSStringFromClass(self.class));
     });
     return sharedInstance;
@@ -24,6 +27,18 @@
             event, NSStringFromClass(viewControllerClass));
     SUIControllerEventObservers *observers = [self controllerEventObserverForEvent:event byClass:viewControllerClass];
     [observers addObserver:observer];
+}
+
+- (void)registerViewController:(UIViewController *)viewController {
+    [self.allViewControllers addObjectIfNew:viewController];
+}
+
+- (void)removeViewController:(UIViewController *)viewController {
+    [self.allViewControllers removeObject:viewController];
+}
+
+- (NSArray *)viewControllersWithClass:(Class)aClass {
+    return [self.allViewControllers objectsWithClass:aClass];
 }
 
 - (void)removeObserver:(id <SUIControllerObserver>)observer fromEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass {
@@ -84,6 +99,8 @@
     return eventClassObservers;
 }
 
+#pragma mark - Lazy
+
 - (NSMutableDictionary *)eventObservers {
     if (!_eventObservers) {
         _eventObservers = [NSMutableDictionary new];
@@ -91,5 +108,11 @@
     return _eventObservers;
 }
 
+- (NSMutableArray *)allViewControllers {
+    if (!_allViewControllers) {
+        _allViewControllers = [NSMutableArray new];
+    }
+    return _allViewControllers;
+}
 
 @end

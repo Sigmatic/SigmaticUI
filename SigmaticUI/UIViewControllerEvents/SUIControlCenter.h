@@ -13,13 +13,19 @@ typedef NS_ENUM(NSInteger , SUIViewControllerEvent) {
     SUIViewControllerViewDidDisappear,
 };
 
-@interface SUIControllerEventManager : NSObject
+@interface SUIControlCenter : NSObject
 
 /*Shared monitoring manager*/
-+ (instancetype)sharedInstance;
++ (instancetype)defaultCenter;
 
 /*Add observer for view controller events*/
 - (void)registerObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;
+
+- (void)registerViewController:(UIViewController *)viewController;
+
+- (void)removeViewController:(UIViewController *)viewController;
+
+- (NSArray *)viewControllersWithClass:(Class)aClass;
 
 /*Remove observer from view controller events*/
 - (void)removeObserver:(id <SUIControllerObserver>)observer fromEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;

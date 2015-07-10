@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SUIControllerEventManager.h"
+#import "SUIControlCenter.h"
 
 @protocol SUIControllerObserver <NSObject>
 

@@ -1,0 +1,28 @@
+PODS:
+  - SigmaticOC (1.0.1):
+    - SigmaticOC/Array (= 1.0.1)
+    - SigmaticOC/Bool (= 1.0.1)
+    - SigmaticOC/Date (= 1.0.1)
+    - SigmaticOC/Dictionary (= 1.0.1)
+    - SigmaticOC/JSON (= 1.0.1)
+    - SigmaticOC/Number (= 1.0.1)
+    - SigmaticOC/Protocol (= 1.0.1)
+    - SigmaticOC/String (= 1.0.1)
+  - SigmaticOC/Array (1.0.1):
+    - SigmaticOC/Number
+  - SigmaticOC/Bool (1.0.1):
+    - SigmaticOC/String
+  - SigmaticOC/Date (1.0.1)
+  - SigmaticOC/Dictionary (1.0.1)
+  - SigmaticOC/JSON (1.0.1)
+  - SigmaticOC/Number (1.0.1)
+  - SigmaticOC/Protocol (1.0.1)
+  - SigmaticOC/String (1.0.1)
+
+DEPENDENCIES:
+  - SigmaticOC (~> 1.0)
+
+SPEC CHECKSUMS:
+  SigmaticOC: ae676216b904e291cc940cdd80349f2febd96d44
+
+COCOAPODS: 0.36.3

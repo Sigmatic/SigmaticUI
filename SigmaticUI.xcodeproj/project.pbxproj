@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AC7249B144F17A3085132B4 /* libPods-SigmaticUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D051071A4C238CAE6026A2 /* libPods-SigmaticUI.a */; };
 		B7757001067DCEFE478FAFA2 /* SUIViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757715CE7C7BE378E79525 /* SUIViewFrame.m */; };
 		B77573B952BDB5696AD4C48F /* SUIViewFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757DBE2819A09E1F8B1A66 /* SUIViewFrameTests.m */; };
 		B77574D1C5A5D9C03E22C144 /* SUIViewSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = B77573A810ABC40C6ED95580 /* SUIViewSorting.m */; };
 		B7757B31E98AB2918088BA9B /* SUIViewControllerMonitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */; };
-		B7757BE229E8FBB1FF0B315F /* SUIControllerEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B775766877BD7E2874C17F86 /* SUIControllerEventManager.m */; };
+		B7757BE229E8FBB1FF0B315F /* SUIControlCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B775766877BD7E2874C17F86 /* SUIControlCenter.m */; };
 		B7757BE92033B67519F04767 /* SUIControllerEventObservers.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757234C87646843AE21C3E /* SUIControllerEventObservers.m */; };
 		B7757EB9CBA6A7899BA2EF43 /* SUIViewSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = B775761108AEFA8BE198AD64 /* SUIViewSubviews.m */; };
 		D54E24D81B313EA60046E899 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D54E24D71B313EA60046E899 /* main.m */; };
@@ -41,7 +42,7 @@
 		B77573A810ABC40C6ED95580 /* SUIViewSorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewSorting.m; sourceTree = "<group>"; };
 		B77576046BB38CC7F97BBC9D /* SUIControllerObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIControllerObserver.h; sourceTree = "<group>"; };
 		B775761108AEFA8BE198AD64 /* SUIViewSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewSubviews.m; sourceTree = "<group>"; };
-		B775766877BD7E2874C17F86 /* SUIControllerEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIControllerEventManager.m; sourceTree = "<group>"; };
+		B775766877BD7E2874C17F86 /* SUIControlCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIControlCenter.m; sourceTree = "<group>"; };
 		B7757715CE7C7BE378E79525 /* SUIViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewFrame.m; sourceTree = "<group>"; };
 		B77578A27C62C325D72D137B /* SUIViewSorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewSorting.h; sourceTree = "<group>"; };
 		B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewControllerMonitoring.m; sourceTree = "<group>"; };
@@ -49,7 +50,7 @@
 		B7757B6E8E56E77808599366 /* SUIViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewFrame.h; sourceTree = "<group>"; };
 		B7757C3F63F7DF0B08ED76CB /* SUIViewControllerMonitoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewControllerMonitoring.h; sourceTree = "<group>"; };
 		B7757C68938989DD07E13B5D /* SUIControllerEventObservers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIControllerEventObservers.h; sourceTree = "<group>"; };
-		B7757DB81404C1FCDAA0C8A7 /* SUIControllerEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIControllerEventManager.h; sourceTree = "<group>"; };
+		B7757DB81404C1FCDAA0C8A7 /* SUIControlCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIControlCenter.h; sourceTree = "<group>"; };
 		B7757DBE2819A09E1F8B1A66 /* SUIViewFrameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewFrameTests.m; sourceTree = "<group>"; };
 		B7757FCDF038BAF96C256083 /* SUIViewSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewSubviews.h; sourceTree = "<group>"; };
 		D54E24D21B313EA50046E899 /* SigmaticUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SigmaticUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC7249B144F17A3085132B4 /* libPods-SigmaticUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +114,8 @@
 			children = (
 				B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */,
 				B7757C3F63F7DF0B08ED76CB /* SUIViewControllerMonitoring.h */,
-				B775766877BD7E2874C17F86 /* SUIControllerEventManager.m */,
-				B7757DB81404C1FCDAA0C8A7 /* SUIControllerEventManager.h */,
+				B775766877BD7E2874C17F86 /* SUIControlCenter.m */,
+				B7757DB81404C1FCDAA0C8A7 /* SUIControlCenter.h */,
 				B77576046BB38CC7F97BBC9D /* SUIControllerObserver.h */,
 				B7757234C87646843AE21C3E /* SUIControllerEventObservers.m */,
 				B7757C68938989DD07E13B5D /* SUIControllerEventObservers.h */,
@@ -211,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D54E24F51B313EA60046E899 /* Build configuration list for PBXNativeTarget "SigmaticUI" */;
 			buildPhases = (
+				43CA10B6B96B2D9FDBDF84F6 /* Check Pods Manifest.lock */,
 				D54E24CE1B313EA50046E899 /* Sources */,
 				D54E24CF1B313EA50046E899 /* Frameworks */,
 				D54E24D01B313EA50046E899 /* Resources */,
+				288C4082AFF1FC08C3C1774F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -300,6 +304,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		288C4082AFF1FC08C3C1774F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SigmaticUI/Pods-SigmaticUI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43CA10B6B96B2D9FDBDF84F6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D54E24CE1B313EA50046E899 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -310,7 +347,7 @@
 				D54E24D81B313EA60046E899 /* main.m in Sources */,
 				D54E24FD1B3161E10046E899 /* SUISubViewController.m in Sources */,
 				B7757B31E98AB2918088BA9B /* SUIViewControllerMonitoring.m in Sources */,
-				B7757BE229E8FBB1FF0B315F /* SUIControllerEventManager.m in Sources */,
+				B7757BE229E8FBB1FF0B315F /* SUIControlCenter.m in Sources */,
 				B7757BE92033B67519F04767 /* SUIControllerEventObservers.m in Sources */,
 				B7757001067DCEFE478FAFA2 /* SUIViewFrame.m in Sources */,
 				B7757EB9CBA6A7899BA2EF43 /* SUIViewSubviews.m in Sources */,
@@ -440,6 +477,7 @@
 		};
 		D54E24F61B313EA60046E899 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162D7608C8F76153946C3483 /* Pods-SigmaticUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -453,6 +491,7 @@
 		};
 		D54E24F71B313EA60046E899 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CAB3391CBE6735A2C9A3541 /* Pods-SigmaticUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;

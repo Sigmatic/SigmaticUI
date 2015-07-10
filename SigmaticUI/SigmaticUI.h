@@ -2,7 +2,7 @@
 #import "SUIViewSorting.h"
 #import "SUIViewSubviews.h"
 
-#import "SUIControllerEventManager.h"
+#import "SUIControlCenter.h"
 #import "SUIControllerEventObservers.h"
 #import "SUIControllerObserver.h"
 #import "SUIViewControllerMonitoring.h"
