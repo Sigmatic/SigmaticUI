@@ -29,14 +29,6 @@
     [observers addObserver:observer];
 }
 
-- (void)registerViewController:(UIViewController *)viewController {
-    [self.allViewControllers addObjectIfNew:viewController];
-}
-
-- (void)removeViewController:(UIViewController *)viewController {
-    [self.allViewControllers removeObject:viewController];
-}
-
 - (NSArray *)viewControllersWithClass:(Class)aClass {
     return [self.allViewControllers objectsWithClass:aClass];
 }
@@ -67,6 +59,14 @@
         [self notifyObserversOfClass:classSuperClass viewController:viewController encounteredEvent:event];
         classSuperClass = [classSuperClass superclass];
     }
+}
+
+- (void)registerViewController:(UIViewController *)viewController {
+    [self.allViewControllers addObjectIfNew:viewController];
+}
+
+- (void)removeViewController:(UIViewController *)viewController {
+    [self.allViewControllers removeObject:viewController];
 }
 
 - (void)notifyObserversOfClass:(Class)aClass viewController:(UIViewController *)controller encounteredEvent:(SUIViewControllerEvent)event {

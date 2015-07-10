@@ -21,10 +21,6 @@ typedef NS_ENUM(NSInteger , SUIViewControllerEvent) {
 /*Add observer for view controller events*/
 - (void)registerObserver:(id <SUIControllerObserver>)observer forEvent:(SUIViewControllerEvent)event byClass:(Class)viewControllerClass;
 
-- (void)registerViewController:(UIViewController *)viewController;
-
-- (void)removeViewController:(UIViewController *)viewController;
-
 - (NSArray *)viewControllersWithClass:(Class)aClass;
 
 /*Remove observer from view controller events*/
@@ -35,5 +31,12 @@ typedef NS_ENUM(NSInteger , SUIViewControllerEvent) {
 
 /*NOT for manual use. Called by view controllers to register new events*/
 - (void)registerEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)viewController;
+
+/*NOT for manual use. Called by view controllers to register themselves*/
+- (void)registerViewController:(UIViewController *)viewController;
+
+/*NOT for manual use. Called by view controllers to un-register themselves*/
+- (void)removeViewController:(UIViewController *)viewController;
+
 
 @end
