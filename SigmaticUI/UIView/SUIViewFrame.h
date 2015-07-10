@@ -4,7 +4,7 @@
 @interface UIView (SUIFrame)
 
 ///---------------------
-/// @name Frame
+/// @name Frame Access
 ///---------------------
 
 /**
