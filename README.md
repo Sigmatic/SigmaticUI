@@ -117,7 +117,6 @@ Find all input text fields for any view and easily implement a 'Next' 'Previous'
 And many many more features
 
 ## Documentation
-Documentation shall be available through CocoaDocs shortly
 
 <a href="http://cocoadocs.org/docsets/SigmaticUI">CocoaDocs</a>
 
