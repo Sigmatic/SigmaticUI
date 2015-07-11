@@ -23,8 +23,6 @@
 
 @protocol SUIControllerObserver;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SUIControllerEventObservers : NSObject
 
 ///---------------------
@@ -68,5 +66,3 @@ Remove an observer.
 - (void)removeObserver:(id <SUIControllerObserver>)observer;
 
 @end
-
-NS_ASSUME_NONNULL_END
