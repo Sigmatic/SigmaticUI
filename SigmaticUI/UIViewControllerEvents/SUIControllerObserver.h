@@ -22,6 +22,8 @@
 #import <Foundation/Foundation.h>
 #import "SUIControlCenter.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol SUIControllerObserver <NSObject>
 
 ///---------------------
@@ -37,3 +39,5 @@ Receive and handle event from the requested event types to view controllers.
 - (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller;
 
 @end
+
+NS_ASSUME_NONNULL_END

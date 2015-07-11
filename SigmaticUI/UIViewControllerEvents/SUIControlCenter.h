@@ -35,6 +35,8 @@ typedef NS_OPTIONS(NSUInteger, SUIViewControllerEvent) {
     SUIViewControllerAllEvents = SUIViewControllerViewDidLoad | SUIViewControllerViewWillAppear | SUIViewControllerFirstViewWillAppear | SUIViewControllerViewDidAppear | SUIViewControllerFirstViewDidAppear | SUIViewControllerViewWillDisappear | SUIViewControllerViewDidDisappear
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SUIControlCenter : NSObject
 
 ///---------------------
@@ -89,5 +91,6 @@ Get all view controller instances of a class type.
 /*NOT for manual use. Called by view controllers to un-register themselves*/
 - (void)removeViewController:(UIViewController *)viewController;
 
-
 @end
+
+NS_ASSUME_NONNULL_END

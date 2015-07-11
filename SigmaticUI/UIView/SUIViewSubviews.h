@@ -22,6 +22,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIView (SUISubviews)
 
 ///---------------------
@@ -45,3 +47,5 @@ All text input views that can be edited by the user. Sorted by their location on
 - (NSArray *)textInputSubviews;
 
 @end
+
+NS_ASSUME_NONNULL_END
