@@ -27,12 +27,12 @@ Or if you are only interested in a subspec, use
 ```ruby
 pod "SigmaticUI/<Subspec>"
 #example
-pod "SigmaticUI/UIViewControllerEvents"
+pod "SigmaticUI/ControllerExpansion"
 ```
 
 ### Available Subspecs
 
-#### UIViewControllerEvents
+#### ControllerExpansion
 
 The control center of all view controllers running in the app.
 <br />
