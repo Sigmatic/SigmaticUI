@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'SigmaticUI'
-  s.version  = '1.0.1'
+  s.version  = '1.1'
   s.license  = 'MIT'
   s.summary  = 'Take back control of your views and controllers'
   s.homepage = 'https://github.com/Sigmatic/SigmaticUI'
