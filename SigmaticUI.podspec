@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     ss.source_files = 'SigmaticUI/UIView/*.{h,m}'
   end
 
-  s.subspec 'UIViewControllerEvents' do |ss|
-    ss.source_files = 'SigmaticUI/UIViewControllerEvents/*.{h,m}'
+  s.subspec 'ControllerExpansion' do |ss|
+    ss.source_files = 'SigmaticUI/ControllerExpansion/*.{h,m}'
   end
 
 end

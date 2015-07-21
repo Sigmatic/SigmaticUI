@@ -111,7 +111,7 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
-		B775781F22D73548A334EA5A /* UIViewControllerEvents */ = {
+		B775781F22D73548A334EA5A /* ControllerExpansion */ = {
 			isa = PBXGroup;
 			children = (
 				B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */,
@@ -122,7 +122,7 @@
 				B7757234C87646843AE21C3E /* SUIControllerEventObservers.m */,
 				B7757C68938989DD07E13B5D /* SUIControllerEventObservers.h */,
 			);
-			path = UIViewControllerEvents;
+			path = ControllerExpansion;
 			sourceTree = "<group>";
 		};
 		B7757B6687EF22A441996C5B /* UIViewControllerEvents */ = {
@@ -184,7 +184,7 @@
 				D54E24E41B313EA60046E899 /* LaunchScreen.xib */,
 				D54E24D51B313EA60046E899 /* Supporting Files */,
 				B77579BA2A532E0AE344D8BA /* SigmaticUI.h */,
-				B775781F22D73548A334EA5A /* UIViewControllerEvents */,
+				B775781F22D73548A334EA5A /* ControllerExpansion */,
 				B7757787D43B28E250F402FF /* UIView */,
 			);
 			path = SigmaticUI;
