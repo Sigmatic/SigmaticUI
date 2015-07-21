@@ -21,6 +21,8 @@
 
 #import "SUIViewControllerMonitoring.h"
 #import "SUIControlCenter.h"
+#import "SUIControllerExtender.h"
+#import "SOCMutableArrayExtension.h"
 #import <objc/runtime.h>
 
 @interface UIViewController (MonitoringPrivate)
@@ -28,6 +30,7 @@
 @property(nonatomic) BOOL willAppearFirstTimeDone;
 @property(nonatomic) BOOL didAppearFirstTimeDone;
 @property(nonatomic) BOOL isVisibleToggle;
+@property(nonatomic) NSMutableArray *extenders;
 
 @end
 
@@ -72,11 +75,21 @@
     [self sui_viewDidLoad];
     [[SUIControlCenter defaultCenter] registerViewController:self];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewDidLoad byViewController:self];
+    for (id<SUIControllerExtender> extender in self.extenders) {
+        if ([extender respondsToSelector:@selector(viewDidLoad)]) {
+            [extender viewDidLoad];
+        }
+    }
 }
 
 - (void)sui_viewWillAppear:(BOOL)animated {
     [self sui_viewWillAppear:animated];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewWillAppear byViewController:self];
+    for (id<SUIControllerExtender> extender in self.extenders) {
+        if ([extender respondsToSelector:@selector(viewWillAppear:)]) {
+            [extender viewWillAppear:animated];
+        }
+    }
     if (![self willAppearFirstTimeDone]) {
         [self setWillAppearFirstTimeDone:YES];
         [self firstViewWillAppear:animated];
@@ -87,6 +100,11 @@
     [self sui_viewDidAppear:animated];
     [self setIsVisibleToggle:YES];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewDidAppear byViewController:self];
+    for (id<SUIControllerExtender> extender in self.extenders) {
+        if ([extender respondsToSelector:@selector(viewDidAppear:)]) {
+            [extender viewDidAppear:animated];
+        }
+    }
     if (![self didAppearFirstTimeDone]) {
         [self setDidAppearFirstTimeDone:YES];
         [self firstViewDidAppear:animated];
@@ -96,30 +114,71 @@
 - (void)sui_viewWillDisappear:(BOOL)animated {
     [self sui_viewWillDisappear:animated];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewWillDisappear byViewController:self];
+    for (id<SUIControllerExtender> extender in self.extenders) {
+        if ([extender respondsToSelector:@selector(viewWillDisappear:)]) {
+            [extender viewWillDisappear:animated];
+        }
+    }
 }
 
 - (void)sui_viewDidDisappear:(BOOL)animated {
     [self sui_viewDidDisappear:animated];
     [self setIsVisibleToggle:NO];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewDidDisappear byViewController:self];
+    for (id<SUIControllerExtender> extender in self.extenders) {
+        if ([extender respondsToSelector:@selector(viewDidDisappear:)]) {
+            [extender viewDidDisappear:animated];
+        }
+    }
 }
 
 - (void)dealloc {
+    for (id<SUIControllerExtender> extender in self.extenders) {
+        if ([extender respondsToSelector:@selector(handleViewControllerWillDealloc)]) {
+            [extender handleViewControllerWillDealloc];
+        }
+    }
     [[SUIControlCenter defaultCenter] removeViewController:self];
 }
 
 - (void)firstViewWillAppear:(BOOL)animated {
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerFirstViewWillAppear byViewController:self];
+    for (id<SUIControllerExtender> extender in self.extenders) {
+        if ([extender respondsToSelector:@selector(firstViewWillAppear:)]) {
+            [extender firstViewWillAppear:animated];
+        }
+    }
 }
 
 - (void)firstViewDidAppear:(BOOL)animated {
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerFirstViewDidAppear byViewController:self];
+    for (id<SUIControllerExtender> extender in self.extenders) {
+        if ([extender respondsToSelector:@selector(firstViewDidAppear:)]) {
+            [extender firstViewDidAppear:animated];
+        }
+    }
 }
 
 - (BOOL)isVisible {
     return [self isVisibleToggle];
 }
 
+- (NSArray *)extendersList {
+    return [[self extenders] copy];
+}
+
+- (void)addExtender:(id<SUIControllerExtender>)extender {
+    if (extender == nil) {
+        return;
+    }
+    NSMutableArray *extenders = self.extenders;
+    if ([extenders containsObject:extender]) {
+        return;
+    }
+    [extenders addObject:extender];
+    [extender setHostViewController:self];
+    [extender handleAddedToViewController];
+}
 
 #pragma mark - Get Set appear property
 
@@ -150,5 +209,17 @@
     objc_setAssociatedObject(self, @selector(isVisibleToggle), @(isVisibleToggle), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (NSMutableArray *)extenders {
+    NSMutableArray *actualExtenders = objc_getAssociatedObject(self, @selector(extenders));
+    if (actualExtenders == nil) {
+        actualExtenders = [NSMutableArray new];
+        [self setExtenders:actualExtenders];
+    }
+    return actualExtenders;
+}
+
+- (void)setExtenders:(NSMutableArray *)extenders {
+    objc_setAssociatedObject(self, @selector(extenders), extenders, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end
