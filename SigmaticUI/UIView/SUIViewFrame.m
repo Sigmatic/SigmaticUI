@@ -65,6 +65,77 @@
     self.frame = myFrame;
 }
 
+#pragma mark - Resize
+
+- (void)expandWidth:(CGFloat)extraWidth {
+    self.width = self.width + extraWidth;
+}
+
+- (void)expandHeight:(CGFloat)extraHeight {
+    self.height = self.height + extraHeight;
+}
+
+- (void)stretchToFillSuperview {
+    [self stretchToFillSuperview:0.f];
+}
+
+- (void)stretchToFillSuperview:(CGFloat)margin {
+    [self stretchToLeft:margin];
+    [self stretchToTop:margin];
+    [self stretchToRight:margin];
+    [self stretchToBottom:margin];
+}
+
+- (void)stretchToLeft {
+    [self stretchToLeft:0.f];
+}
+
+- (void)stretchToLeft:(CGFloat)margin {
+    if (self.superview == nil) {
+        return;
+    }
+    CGFloat difference = [self marginToLeft] - margin;
+    [self alignLeft:margin];
+    [self expandWidth:difference];
+}
+
+- (void)stretchToTop {
+    [self stretchToTop:0.f];
+}
+
+- (void)stretchToTop:(CGFloat)margin {
+    if (self.superview == nil) {
+        return;
+    }
+    CGFloat difference = [self marginToTop] - margin;
+    [self alignTop:margin];
+    [self expandHeight:difference];
+}
+
+- (void)stretchToRight {
+    [self stretchToRight:0.f];
+}
+
+- (void)stretchToRight:(CGFloat)margin {
+    if (self.superview == nil) {
+        return;
+    }
+    CGFloat difference = [self marginToRight] - margin;
+    [self expandWidth:difference];
+}
+
+- (void)stretchToBottom {
+    [self stretchToBottom:0.f];
+}
+
+- (void)stretchToBottom:(CGFloat)margin {
+    if (self.superview == nil) {
+        return;
+    }
+    CGFloat difference = [self marginToBottom] - margin;
+    [self expandHeight:difference];
+}
+
 #pragma mark - Align
 
 - (void)alignLeft {
@@ -75,12 +146,20 @@
     self.x = margin;
 }
 
+- (CGFloat)marginToLeft {
+    return self.x;
+}
+
 - (void)alignTop {
     [self alignTop:0];
 }
 
 - (void)alignTop:(CGFloat)margin {
     self.y = margin;
+}
+
+- (CGFloat)marginToTop {
+    return self.y;
 }
 
 - (void)alignRight {
@@ -95,6 +174,10 @@
     self.x = superviewWidth - self.width - margin;
 }
 
+- (CGFloat)marginToRight {
+    return self.superview.width - self.width - self.x;
+}
+
 - (void)alignBottom {
     [self alignBottom:0];
 }
@@ -105,6 +188,10 @@
     }
     CGFloat superviewHeight = self.superview.height;
     self.y = superviewHeight - self.height - margin;
+}
+
+- (CGFloat)marginToBottom {
+    return self.superview.height - self.height - self.y;
 }
 
 #pragma mark - Align In Respect to View

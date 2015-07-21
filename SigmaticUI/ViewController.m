@@ -1,5 +1,6 @@
 #import "ViewController.h"
 #import "SUIViewSubviews.h"
+#import "SUIViewFrame.h"
 
 @interface ViewController ()
 
@@ -45,6 +46,9 @@
     [super viewDidLayoutSubviews];
 }
 
+- (IBAction)didTapResizeButton {
+    NSLog(@"Want to resize");
+}
 
 
 @end

@@ -49,6 +49,77 @@ The height of the frame from view.frame.size.height.
 @property(nonatomic) CGFloat height;
 
 ///---------------------
+/// @name Resizing
+///---------------------
+
+/**
+Resizing the view to be wider (or less if in minus).
+@param extraWidth the amount of extra width to add to the view.
+*/
+- (void)expandWidth:(CGFloat)extraWidth;
+
+/**
+Resizing the view to be taller (or less if in minus).
+@param extraHeight the amount of extra height to add to the view.
+*/
+- (void)expandHeight:(CGFloat)extraHeight;
+
+/**
+Resize the view to be the same size as the superview.
+*/
+- (void)stretchToFillSuperview;
+
+/**
+Resize the view to have a consistent margin between its sides and the superview.
+@param margin the space between the sides of the view and the sides of the superview.
+*/
+- (void)stretchToFillSuperview:(CGFloat)margin;
+
+/**
+Stretch the view to the left of its superview.
+*/
+- (void)stretchToLeft;
+
+/**
+Stretch the view to the left of its superview with a margin.
+@param margin the space between the left of the view and the left of the superview.
+*/
+- (void)stretchToLeft:(CGFloat)margin;
+
+/**
+Stretch the view to the top of its superview.
+*/
+- (void)stretchToTop;
+
+/**
+Stretch the view to the top of its superview with a margin.
+@param margin the space between the top of the view and the top of the superview.
+*/
+- (void)stretchToTop:(CGFloat)margin;
+
+/**
+Stretch the view to the right of its superview.
+*/
+- (void)stretchToRight;
+
+/**
+Stretch the view to the right of its superview with a margin.
+@param margin the space between the right of the view and the right of the superview.
+*/
+- (void)stretchToRight:(CGFloat)margin;
+
+/**
+Stretch the view to the bottom of its superview.
+*/
+- (void)stretchToBottom;
+
+/**
+Stretch the view to the bottom of its superview with a margin.
+@param margin the space between the bottom of the view and the bottom of the superview.
+*/
+- (void)stretchToBottom:(CGFloat)margin;
+
+///---------------------
 /// @name Alignment
 ///---------------------
 
@@ -64,6 +135,11 @@ Align left in superview with margin.
 - (void)alignLeft:(CGFloat)margin;
 
 /**
+Space between the left of view and left of the superview.
+*/
+- (CGFloat)marginToLeft;
+
+/**
 Align top in superview.
 */
 - (void)alignTop;
@@ -73,6 +149,11 @@ Align top in superview with margin.
 @param margin Margin between the superview and the top the view.
 */
 - (void)alignTop:(CGFloat)margin;
+
+/**
+Space between the top of view and top of the superview.
+*/
+- (CGFloat)marginToTop;
 
 /**
 Align right in superview.
@@ -86,6 +167,11 @@ Align right in superview with margin.
 - (void)alignRight:(CGFloat)margin;
 
 /**
+Space between the right of view and right of the superview.
+*/
+- (CGFloat)marginToRight;
+
+/**
 Align bottom in superview.
 */
 - (void)alignBottom;
@@ -95,6 +181,11 @@ Align bottom in superview with margin.
 @param margin Margin between the superview and the bottom the view.
 */
 - (void)alignBottom:(CGFloat)margin;
+
+/**
+Space between the bottom of view and bottom of the superview.
+*/
+- (CGFloat)marginToBottom;
 
 ///---------------------
 /// @name Alignment with View
