@@ -75,7 +75,7 @@
     [self sui_viewDidLoad];
     [[SUIControlCenter defaultCenter] registerViewController:self];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewDidLoad byViewController:self];
-    for (id<SUIControllerExtender> extender in self.extenders) {
+    for (id <SUIControllerExtender> extender in self.extenders) {
         if ([extender respondsToSelector:@selector(viewDidLoad)]) {
             [extender viewDidLoad];
         }
@@ -85,7 +85,7 @@
 - (void)sui_viewWillAppear:(BOOL)animated {
     [self sui_viewWillAppear:animated];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewWillAppear byViewController:self];
-    for (id<SUIControllerExtender> extender in self.extenders) {
+    for (id <SUIControllerExtender> extender in self.extenders) {
         if ([extender respondsToSelector:@selector(viewWillAppear:)]) {
             [extender viewWillAppear:animated];
         }
@@ -100,7 +100,7 @@
     [self sui_viewDidAppear:animated];
     [self setIsVisibleToggle:YES];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewDidAppear byViewController:self];
-    for (id<SUIControllerExtender> extender in self.extenders) {
+    for (id <SUIControllerExtender> extender in self.extenders) {
         if ([extender respondsToSelector:@selector(viewDidAppear:)]) {
             [extender viewDidAppear:animated];
         }
@@ -114,7 +114,7 @@
 - (void)sui_viewWillDisappear:(BOOL)animated {
     [self sui_viewWillDisappear:animated];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewWillDisappear byViewController:self];
-    for (id<SUIControllerExtender> extender in self.extenders) {
+    for (id <SUIControllerExtender> extender in self.extenders) {
         if ([extender respondsToSelector:@selector(viewWillDisappear:)]) {
             [extender viewWillDisappear:animated];
         }
@@ -125,7 +125,7 @@
     [self sui_viewDidDisappear:animated];
     [self setIsVisibleToggle:NO];
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerViewDidDisappear byViewController:self];
-    for (id<SUIControllerExtender> extender in self.extenders) {
+    for (id <SUIControllerExtender> extender in self.extenders) {
         if ([extender respondsToSelector:@selector(viewDidDisappear:)]) {
             [extender viewDidDisappear:animated];
         }
@@ -133,7 +133,7 @@
 }
 
 - (void)dealloc {
-    for (id<SUIControllerExtender> extender in self.extenders) {
+    for (id <SUIControllerExtender> extender in self.extenders) {
         if ([extender respondsToSelector:@selector(handleViewControllerWillDealloc)]) {
             [extender handleViewControllerWillDealloc];
         }
@@ -143,7 +143,7 @@
 
 - (void)firstViewWillAppear:(BOOL)animated {
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerFirstViewWillAppear byViewController:self];
-    for (id<SUIControllerExtender> extender in self.extenders) {
+    for (id <SUIControllerExtender> extender in self.extenders) {
         if ([extender respondsToSelector:@selector(firstViewWillAppear:)]) {
             [extender firstViewWillAppear:animated];
         }
@@ -152,7 +152,7 @@
 
 - (void)firstViewDidAppear:(BOOL)animated {
     [[SUIControlCenter defaultCenter] registerEvent:SUIViewControllerFirstViewDidAppear byViewController:self];
-    for (id<SUIControllerExtender> extender in self.extenders) {
+    for (id <SUIControllerExtender> extender in self.extenders) {
         if ([extender respondsToSelector:@selector(firstViewDidAppear:)]) {
             [extender firstViewDidAppear:animated];
         }
@@ -167,10 +167,11 @@
     return [[self extenders] copy];
 }
 
-- (void)addExtender:(id<SUIControllerExtender>)extender {
+- (void)addExtender:(id <SUIControllerExtender>)extender {
     if (extender == nil) {
         return;
     }
+    [self checkExtenderIsCompatible:extender];
     NSMutableArray *extenders = self.extenders;
     if ([extenders containsObject:extender]) {
         return;
@@ -178,6 +179,18 @@
     [extenders addObject:extender];
     [extender setHostViewController:self];
     [extender handleAddedToViewController];
+}
+
+- (void)checkExtenderIsCompatible:(id <SUIControllerExtender>)extender {
+    if ([extender respondsToSelector:@selector(requiredHostClassType)]) {
+        Class requiredClass = [extender requiredHostClassType];
+        if (![self isKindOfClass:requiredClass]) {
+            NSString *reason = [NSString stringWithFormat:@"Requested class of type %@, but was %@",
+                                                          NSStringFromClass(requiredClass), NSStringFromClass([self class])];
+            NSException *e = [NSException exceptionWithName:@"SUIIncompatibleClassExtender" reason:reason userInfo:nil];
+            @throw e;
+        }
+    }
 }
 
 #pragma mark - Get Set appear property

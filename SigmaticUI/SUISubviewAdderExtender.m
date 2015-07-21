@@ -5,6 +5,7 @@
 
 #import "SUISubviewAdderExtender.h"
 #import "SUIViewFrame.h"
+#import "ViewController.h"
 
 @interface SUISubviewAdderExtender ()
 
@@ -13,6 +14,10 @@
 @end
 
 @implementation SUISubviewAdderExtender
+
+- (Class)requiredHostClassType {
+    return ViewController.class;
+}
 
 - (void)firstViewWillAppear:(BOOL)animated {
     [super firstViewWillAppear:animated];
