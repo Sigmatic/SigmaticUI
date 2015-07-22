@@ -57,6 +57,6 @@ Callback for only the first view did appear
 Add a new extender to the view controller
 @param extender the extender
 */
-- (void)addExtender:(id<SUIControllerExtender>)extender;
+- (void)addExtender:(id <SUIControllerExtender>)extender;
 
 @end

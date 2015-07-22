@@ -3,8 +3,6 @@
 
 @implementation SUIBaseControllerExtender
 
-@synthesize hostViewController;
-
 - (UIView *)view {
     return self.hostViewController.view;
 }

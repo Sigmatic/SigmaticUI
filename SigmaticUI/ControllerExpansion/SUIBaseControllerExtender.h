@@ -25,6 +25,11 @@
 @interface SUIBaseControllerExtender : NSObject <SUIControllerExtender>
 
 /**
+The host ViewController
+*/
+@property(nonatomic, weak) UIViewController *hostViewController;
+
+/**
 ViewController View
 */
 @property(nonatomic, readonly) UIView *view;
