@@ -34,12 +34,40 @@ pod "SigmaticUI/ControllerExpansion"
 
 #### ControllerExpansion
 
-The control center of all view controllers running in the app.
+There are 2 parts to Controller Expansion
+
+**Extension**
 <br />
-Receive notifications for any event you're interested in, with any view controller type.
+Allows extending a view controller with callbacks to all the usual view controller lifecycle events
+<br /><br />
+**Observation**
+<br />
+Allows observing and adding non-interfering functionality to view controllers
 
+##### Extension Example use-cases
+  
+  
+###### Add Similar Functionality to UIViewControllers and UITableViewControllers
+```objective-c
+UIViewController *passcodeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PasscodeController"];
+[controller addExtender:[ViewTapKeyboardDismisser new]];
 
-##### Example use-cases
+UITableViewController *formViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FormController"];
+[formViewController addExtender:[ViewTapKeyboardDismisser new]]; 
+ 
+//In ViewTapKeyboardDismisser(%)
+- (void)viewDidLoad {
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.hostViewController.view addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
+}
+
+```
+
+##### Observation Example use-cases
 
 ###### Simple User Engagement Monitor
 ```objective-c

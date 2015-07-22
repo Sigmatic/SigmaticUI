@@ -12,6 +12,12 @@
     [super viewDidLoad];
     NSLog(@"is property injected? %@", self.propertyInjected ? @"Yes" : @"No");
     // Do any additional setup after loading the view, typically from a nib.
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
