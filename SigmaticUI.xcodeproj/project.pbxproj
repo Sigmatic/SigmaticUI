@@ -13,7 +13,10 @@
 		B77574D1C5A5D9C03E22C144 /* SUIViewSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = B77573A810ABC40C6ED95580 /* SUIViewSorting.m */; };
 		B775758B8D964E1AF8A389C8 /* SUIControlCenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757BB7C74AFCF719CB6219 /* SUIControlCenterTests.m */; };
 		B77575A5F4F74038A1650D5E /* SUIBaseControllerExtender.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757390E4B42ECD403FD84E /* SUIBaseControllerExtender.m */; };
+		B775772693C3FF1DCA3F6264 /* SUICenterControllerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757F12D6C4D07A245AD994 /* SUICenterControllerHolder.m */; };
+		B775787259CF2CE6476ECDAB /* SUISlideToDismissExtender.m in Sources */ = {isa = PBXBuildFile; fileRef = B775715C2B43DB7A62707477 /* SUISlideToDismissExtender.m */; };
 		B775789F6ACEEE654F939A61 /* SUISubviewAdderExtender.m in Sources */ = {isa = PBXBuildFile; fileRef = B77576D06DC3B6FCECBD0B3A /* SUISubviewAdderExtender.m */; };
+		B775791343A5532D64184C81 /* SUITapToDismissExtender.m in Sources */ = {isa = PBXBuildFile; fileRef = B775773C8BE0C26F1DFE9BDE /* SUITapToDismissExtender.m */; };
 		B7757B31E98AB2918088BA9B /* SUIViewControllerMonitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */; };
 		B7757BE229E8FBB1FF0B315F /* SUIControlCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = B775766877BD7E2874C17F86 /* SUIControlCenter.m */; };
 		B7757BE92033B67519F04767 /* SUIControllerEventObservers.m in Sources */ = {isa = PBXBuildFile; fileRef = B7757234C87646843AE21C3E /* SUIControllerEventObservers.m */; };
@@ -41,6 +44,7 @@
 		162D7608C8F76153946C3483 /* Pods-SigmaticUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SigmaticUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SigmaticUI/Pods-SigmaticUI.debug.xcconfig"; sourceTree = "<group>"; };
 		1CAB3391CBE6735A2C9A3541 /* Pods-SigmaticUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SigmaticUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-SigmaticUI/Pods-SigmaticUI.release.xcconfig"; sourceTree = "<group>"; };
 		56D051071A4C238CAE6026A2 /* libPods-SigmaticUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SigmaticUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B775715C2B43DB7A62707477 /* SUISlideToDismissExtender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUISlideToDismissExtender.m; sourceTree = "<group>"; };
 		B7757234C87646843AE21C3E /* SUIControllerEventObservers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIControllerEventObservers.m; sourceTree = "<group>"; };
 		B7757349CF0E9AF8009F075C /* SUIBaseControllerExtender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIBaseControllerExtender.h; sourceTree = "<group>"; };
 		B7757390E4B42ECD403FD84E /* SUIBaseControllerExtender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIBaseControllerExtender.m; sourceTree = "<group>"; };
@@ -51,16 +55,21 @@
 		B775766877BD7E2874C17F86 /* SUIControlCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIControlCenter.m; sourceTree = "<group>"; };
 		B77576D06DC3B6FCECBD0B3A /* SUISubviewAdderExtender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUISubviewAdderExtender.m; sourceTree = "<group>"; };
 		B7757715CE7C7BE378E79525 /* SUIViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewFrame.m; sourceTree = "<group>"; };
+		B775773C8BE0C26F1DFE9BDE /* SUITapToDismissExtender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUITapToDismissExtender.m; sourceTree = "<group>"; };
 		B77578A27C62C325D72D137B /* SUIViewSorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewSorting.h; sourceTree = "<group>"; };
+		B775799BE4AD32A99F45F614 /* SUITapToDismissExtender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUITapToDismissExtender.h; sourceTree = "<group>"; };
 		B77579B107DD41B812224DA6 /* SUIViewControllerMonitoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewControllerMonitoring.m; sourceTree = "<group>"; };
 		B77579BA2A532E0AE344D8BA /* SigmaticUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigmaticUI.h; sourceTree = "<group>"; };
 		B7757A08EA7DC6E3A7C41B93 /* SUISubviewAdderExtender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUISubviewAdderExtender.h; sourceTree = "<group>"; };
 		B7757B6E8E56E77808599366 /* SUIViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewFrame.h; sourceTree = "<group>"; };
 		B7757BB7C74AFCF719CB6219 /* SUIControlCenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIControlCenterTests.m; sourceTree = "<group>"; };
+		B7757BFAEDAC0F0EE04C822F /* SUICenterControllerHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUICenterControllerHolder.h; sourceTree = "<group>"; };
 		B7757C3F63F7DF0B08ED76CB /* SUIViewControllerMonitoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewControllerMonitoring.h; sourceTree = "<group>"; };
 		B7757C68938989DD07E13B5D /* SUIControllerEventObservers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIControllerEventObservers.h; sourceTree = "<group>"; };
 		B7757DB81404C1FCDAA0C8A7 /* SUIControlCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIControlCenter.h; sourceTree = "<group>"; };
 		B7757DBE2819A09E1F8B1A66 /* SUIViewFrameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUIViewFrameTests.m; sourceTree = "<group>"; };
+		B7757F12D6C4D07A245AD994 /* SUICenterControllerHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUICenterControllerHolder.m; sourceTree = "<group>"; };
+		B7757F2D62D247B8E9B25216 /* SUISlideToDismissExtender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUISlideToDismissExtender.h; sourceTree = "<group>"; };
 		B7757FCDF038BAF96C256083 /* SUIViewSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUIViewSubviews.h; sourceTree = "<group>"; };
 		D54E24D21B313EA50046E899 /* SigmaticUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SigmaticUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54E24D61B313EA60046E899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +140,9 @@
 				B775759DBABC5684C1438B3B /* SUIControllerExtender.h */,
 				B7757390E4B42ECD403FD84E /* SUIBaseControllerExtender.m */,
 				B7757349CF0E9AF8009F075C /* SUIBaseControllerExtender.h */,
+				B7757D99CEA9717EAC2BA0C6 /* Extenders */,
+				B7757F12D6C4D07A245AD994 /* SUICenterControllerHolder.m */,
+				B7757BFAEDAC0F0EE04C822F /* SUICenterControllerHolder.h */,
 			);
 			path = ControllerExpansion;
 			sourceTree = "<group>";
@@ -149,6 +161,17 @@
 				B7757DBE2819A09E1F8B1A66 /* SUIViewFrameTests.m */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		B7757D99CEA9717EAC2BA0C6 /* Extenders */ = {
+			isa = PBXGroup;
+			children = (
+				B775773C8BE0C26F1DFE9BDE /* SUITapToDismissExtender.m */,
+				B775799BE4AD32A99F45F614 /* SUITapToDismissExtender.h */,
+				B775715C2B43DB7A62707477 /* SUISlideToDismissExtender.m */,
+				B7757F2D62D247B8E9B25216 /* SUISlideToDismissExtender.h */,
+			);
+			path = Extenders;
 			sourceTree = "<group>";
 		};
 		BE7439579E096CC2E2AF56C3 /* Pods */ = {
@@ -377,6 +400,9 @@
 				B77574D1C5A5D9C03E22C144 /* SUIViewSorting.m in Sources */,
 				B77575A5F4F74038A1650D5E /* SUIBaseControllerExtender.m in Sources */,
 				B775789F6ACEEE654F939A61 /* SUISubviewAdderExtender.m in Sources */,
+				B775791343A5532D64184C81 /* SUITapToDismissExtender.m in Sources */,
+				B775787259CF2CE6476ECDAB /* SUISlideToDismissExtender.m in Sources */,
+				B775772693C3FF1DCA3F6264 /* SUICenterControllerHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

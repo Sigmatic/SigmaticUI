@@ -5,6 +5,8 @@
 #import "SUISubViewController.h"
 #import "SUIViewControllerMonitoring.h"
 #import "SUISubviewAdderExtender.h"
+#import "SUISlideToDismissExtender.h"
+#import "SUITapToDismissExtender.h"
 
 @interface AppDelegate () <SUIControllerObserver>
 
@@ -15,8 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
+    [navigationController addExtender:[SUISlideToDismissExtender new]];
     ViewController *controller = navigationController.viewControllers[0];
     [controller addExtender:[SUISubviewAdderExtender new]];
+    [controller addExtender:[SUITapToDismissExtender new]];
     NSLog(@"Controller %@", controller);
     [[SUIControlCenter defaultCenter] registerObserver:self
                                              forEvents: SUIViewControllerViewDidAppear | SUIViewControllerViewDidDisappear
