@@ -1,14 +1,7 @@
 #import "AppDelegate.h"
-#import "SUIControlCenter.h"
 #import "ViewController.h"
-#import "SUIControllerObserver.h"
-#import "SUISubViewController.h"
-#import "SUIViewControllerMonitoring.h"
-#import "SUISubviewAdderExtender.h"
-#import "SUISlideToDismissExtender.h"
-#import "SUITapToDismissExtender.h"
 
-@interface AppDelegate () <SUIControllerObserver>
+@interface AppDelegate ()
 
 @end
 
@@ -16,15 +9,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
-    [navigationController addExtender:[SUISlideToDismissExtender new]];
-    ViewController *controller = navigationController.viewControllers[0];
-    [controller addExtender:[SUISubviewAdderExtender new]];
-    [controller addExtender:[SUITapToDismissExtender new]];
-    NSLog(@"Controller %@", controller);
-    [[SUIControlCenter defaultCenter] registerObserver:self
-                                             forEvents: SUIViewControllerViewDidAppear | SUIViewControllerViewDidDisappear
-                                               byClass:ViewController.class];
     // Override point for customization after application launch.
     return YES;
 }
@@ -45,19 +29,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    NSArray *controllers = [[SUIControlCenter defaultCenter] viewControllersWithClass:[UIViewController class]];
-    NSLog(@"Number of view controllers %zd", controllers.count);
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark - Controller Event Observer
-
-- (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
-    NSLog(@"Controller of class: %@ is on event: %zd", NSStringFromClass(controller.class), event);
-}
 
 
 @end
