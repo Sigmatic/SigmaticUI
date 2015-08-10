@@ -10,11 +10,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"is property injected? %@", self.propertyInjected ? @"Yes" : @"No");
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)dismissKeyboard {
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +46,11 @@
 
 - (IBAction)didTapResizeButton {
     NSLog(@"Want to resize");
+}
+
+- (IBAction)didTapShowModalButton {
+    UIViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ModalViewController"];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 

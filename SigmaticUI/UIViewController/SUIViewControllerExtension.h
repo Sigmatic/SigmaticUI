@@ -22,20 +22,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@protocol SUIControllerExtender;
 
-
-@interface UIViewController (Monitoring)
+@interface UIViewController (SUIExtension)
 
 /**
 Updated property to maintain whether view is visible
 */
 @property(nonatomic, readonly) BOOL isVisible;
-
-/**
-List of extenders
-*/
-@property(nonatomic, readonly) NSArray *extendersList;
 
 ///---------------------
 /// @name First Appearance
@@ -52,11 +45,5 @@ Callback for only the first view did appear
 @param animated Whether the view is presented with animation
 */
 - (void)firstViewDidAppear:(BOOL)animated;
-
-/**
-Add a new extender to the view controller
-@param extender the extender
-*/
-- (void)addExtender:(id <SUIControllerExtender>)extender;
 
 @end

@@ -7,5 +7,7 @@
 
 - (IBAction)didTapResizeButton;
 
+- (IBAction)didTapShowModalButton;
+
 @end
 
