@@ -32,102 +32,6 @@ pod "SigmaticUI/ControllerExpansion"
 
 ### Available Subspecs
 
-#### ControllerExpansion
-
-There are 2 parts to Controller Expansion
-
-**Extension**
-<br />
-Allows extending a view controller with callbacks to all the usual view controller lifecycle events
-<br /><br />
-**Observation**
-<br />
-Allows observing and adding non-interfering functionality to view controllers
-
-##### Extension Example use-cases
-  
-  
-###### Add Similar Functionality to UIViewControllers and UITableViewControllers
-```objective-c
-UIViewController *passcodeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PasscodeController"];
-[controller addExtender:[ViewTapKeyboardDismisser new]];
-
-UITableViewController *formViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FormController"];
-[formViewController addExtender:[ViewTapKeyboardDismisser new]]; 
- 
-//In ViewTapKeyboardDismisser(%)
-- (void)viewDidLoad {
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.hostViewController.view addGestureRecognizer:tapGestureRecognizer];
-}
-
-- (void)dismissKeyboard {
-    [self.view endEditing:YES];
-}
-
-```
-
-##### Observation Example use-cases
-
-###### Simple User Engagement Monitor
-```objective-c
-[[SUIControlCenter defaultCenter] registerObserver:enagementMonitor
-                                             forEvents:SUIViewControllerViewDidAppear | SUIViewControllerViewDidDisappear
-                                               byClass:UIViewController.class];
- 
-//In EnagementMonitor(%)
-- (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
-    if (event == SUIViewControllerViewDidAppear) {
-        [self startEngagementTimerForController:controller];
-    } else {
-        [self stopEngagementTimerForController:controller];
-        [self recordSessionForController:controller];
-    }
-}
-```
-
-###### Dismiss All Popovers
-
-User session is no longer valid and you have to dismiss everything?
-
-```objective-c
-NSArray *allPopovers = [[SUIControlCenter defaultCenter] viewControllersWithClass:UIPopoverController.class];
-for (UIPopoverController *popoverController in allPopovers) {
-    [popoverController dismissPopoverAnimated:YES];
-}
-```
-
-###### Log View Controller Activities
-
-```objective-c
-[[SUIControlCenter defaultCenter] registerObserver:controllerLogger
-                                             forEvents:SUIViewControllerAllEvents
-                                               byClass:UIViewController.class];
- 
-//In ControllerLogger(%)
-- (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
-    NSLog(@"Controller %@ is on event: %zd", NSStringFromClass(controller.class), event);
-}
-```
-
-
-###### Inject Dependencies
-```objective-c
-[[SUIControlCenter defaultCenter] registerObserver:dependencyInjector
-                                             forEvents:SUIViewControllerViewDidLoad
-                                               byClass:BaseCommViewController.class];
- 
-//In DependencyInjector(%)
-- (void)handleEvent:(SUIViewControllerEvent)event byViewController:(UIViewController *)controller {
-    BaseCommViewController *commViewController = (BaseCommViewController *)controller;
-    [commViewController setCommunicationService:self.communicationService];
-}
-```
-
-I am sure you will have more imaginative ideas
-
-(%) These classes do not exist. They are here for illustration purposes only.
-
 #### UIView
 Easily change view dimensions and location. Move and align with respect to the superview or a sibling view.
 ```objective-c
@@ -143,6 +47,24 @@ Find all input text fields for any view and easily implement a 'Next' 'Previous'
 
 <br />
 And many many more features
+
+#### UIViewController
+Receive callbacks for when the view has first appeared
+```objective-c
+- (void)firstViewWillAppear:(BOOL)animated {
+}
+
+- (void)firstViewDidAppear:(BOOL)animated {
+}
+```
+<br />
+<br />
+Check whether the view is visible
+```objective-c
+if (myViewController.isVisible) {
+}
+```
+<br />
 
 ## Documentation
 
