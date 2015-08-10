@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'SigmaticUI'
-  s.version  = '2.0.1'
+  s.version  = '2.1'
   s.license  = 'MIT'
   s.summary  = 'Take back control of your views and controllers'
   s.homepage = 'https://github.com/Sigmatic/SigmaticUI'
@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
     ss.source_files = 'SigmaticUI/UIView/*.{h,m}'
   end
 
-  s.subspec 'ControllerExpansion' do |ss|
-    ss.source_files = 'SigmaticUI/ControllerExpansion/*.{h,m}'
+  s.subspec 'UIViewController' do |ss|
+    ss.source_files = 'SigmaticUI/UIViewController/*.{h,m}'
   end
 
 end
